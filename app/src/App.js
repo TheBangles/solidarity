@@ -5,7 +5,10 @@ import drizzleOptions from "./drizzleOptions";
 import MyComponent from "./MyComponent";
 import "./App.css";
 
+
+//ERROR
 const drizzle = new Drizzle(drizzleOptions);
+console.log(drizzle)
 
 const App = () => {
   return (
