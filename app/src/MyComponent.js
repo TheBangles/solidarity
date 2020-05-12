@@ -127,7 +127,7 @@ export default ({ drizzle, drizzleState }) => {
       </div>
 
     */}
-
+{/*
       <div className="section">
         <h2>Donate</h2>
         <p>
@@ -143,7 +143,7 @@ export default ({ drizzle, drizzleState }) => {
           />
         </p>
         <ContractForm drizzle={drizzle} contract="Donate" method="donate" />
-      </div>
+      </div> */}
 
     </div>
   );
