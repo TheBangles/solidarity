@@ -7,24 +7,19 @@ export default class DonateComponent extends Component {
     this.state = {
       name: "",
       description: "",
-      amountNeeded: ""
+      amountNeeded: "",
+      userAddress: ""
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // componentDidMount() {
-  //   const { drizzle } = this.props;
-  //   // subscribe to changes in the store
-  //   this.unsubscribe = drizzle.store.subscribe(() => {
-  //     // every time the store updates, grab the state from drizzle
-  //     const drizzleState = drizzle.store.getState();
-  //     // check to see if it's ready, if so, update local component state
-  //     if (drizzleState.drizzleStatus.initialized) {
-  //       this.setState({ loading: false, drizzleState });
-  //     }
-  //   });
-  // }
+  async componentDidMount() {
+    if (!this.state.userAddress) {
+      const accounts = await this.props.drizzle.web3.eth.getAccounts();
+      this.setState({ userAddress: accounts[0] });
+    }
+  }
 
 
   handleChange = (event) => {
@@ -35,7 +30,7 @@ export default class DonateComponent extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(this.props.drizzle.contracts)
+    console.log(this.props.drizzle.store.getState())
     try {
       await this.props.drizzle.contracts.Donate.methods
       .createProjectStruct(
@@ -43,6 +38,7 @@ export default class DonateComponent extends Component {
         this.state.description,
         this.state.amountNeeded
       )
+      .send({ from: this.state.userAddress })
     } catch (error) {
       console.log(error)
     }
