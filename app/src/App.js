@@ -2,8 +2,10 @@ import React from "react";
 import { DrizzleContext } from "@drizzle/react-plugin";
 import { Drizzle } from "@drizzle/store";
 import drizzleOptions from "./drizzleOptions";
-import MyComponent from "./MyComponent";
+// import MyComponent from "./MyComponent";
+import DonateComponent from './DonateComponent'
 import "./App.css";
+
 
 const drizzle = new Drizzle(drizzleOptions);
 
@@ -19,8 +21,10 @@ const App = () => {
           }
 
           return (
-            <MyComponent drizzle={drizzle} drizzleState={drizzleState} />
-          )
+            // <MyComponent drizzle={drizzle} drizzleState={drizzleState} />
+            <DonateComponent drizzle={drizzle} drizzleState={drizzleState} />
+
+            )
         }}
       </DrizzleContext.Consumer>
     </DrizzleContext.Provider>
