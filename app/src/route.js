@@ -12,7 +12,8 @@ export default class Routes extends Component {
       <Router history={history}>
         <Switch>
           <Route exact path='/login' component={Login} />
-          <Route exact path='/donate' component={() => <DonateComponent drizzle={this.props.drizzle} drizzleState={this.props.drizzleState} />} />
+          {/* <Route exact path='/donate' component={() => <DonateComponent drizzle={this.props.drizzle} drizzleState={this.props.drizzleState} />} /> */}
+          <Route exact path='/donate' render={() => <DonateComponent {...this.props} />} />
           <Route path='/' component={Homepage} />
         </Switch>
       </Router>
