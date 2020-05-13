@@ -2,8 +2,8 @@ import React from 'react';
 import { DrizzleContext } from '@drizzle/react-plugin';
 import { Drizzle } from '@drizzle/store';
 import drizzleOptions from './drizzleOptions';
-// import MyComponent from "./MyComponent";
 import DonateComponent from './DonateComponent';
+import SingleProject from './SingleProject';
 import './App.css';
 
 const drizzle = new Drizzle(drizzleOptions);
@@ -20,7 +20,10 @@ const App = () => {
           }
 
           return (
-            <DonateComponent drizzle={drizzle} drizzleState={drizzleState} />
+            <div>
+              <SingleProject drizzle={drizzle} drizzleState={drizzleState} />
+              <DonateComponent drizzle={drizzle} drizzleState={drizzleState} />
+            </div>
           );
         }}
       </DrizzleContext.Consumer>
