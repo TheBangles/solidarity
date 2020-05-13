@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import AllProjects from './AllProjects'
 
-export default class DonateComponent extends Component {
+export default class AddProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -88,7 +88,7 @@ export default class DonateComponent extends Component {
             />
           </div>
           <div>
-            <button type="submit">Add new Project</button>
+            <button type="submit">Add Project</button>
           </div>
         </form>
         {/* <AllProjects /> */}

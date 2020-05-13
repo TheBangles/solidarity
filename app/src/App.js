@@ -2,7 +2,7 @@ import React from 'react';
 import { DrizzleContext } from '@drizzle/react-plugin';
 import { Drizzle } from '@drizzle/store';
 import drizzleOptions from './drizzleOptions';
-import DonateComponent from './DonateComponent';
+import AddProject from './components/AddProject';
 import SingleProject from './SingleProject';
 import './App.css';
 
@@ -22,7 +22,7 @@ const App = () => {
           return (
             <div>
               <SingleProject drizzle={drizzle} drizzleState={drizzleState} />
-              <DonateComponent drizzle={drizzle} drizzleState={drizzleState} />
+              <AddProject drizzle={drizzle} drizzleState={drizzleState} />
             </div>
           );
         }}
