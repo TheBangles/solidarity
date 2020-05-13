@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import AllProjects from './AllProjects'
 
-export default class DonateComponent extends Component {
+export default class CreateProject extends Component {
   constructor (props) {
     super (props);
     this.state = {
@@ -15,6 +15,7 @@ export default class DonateComponent extends Component {
   }
 
   async componentDidMount() {
+    console.log(this.props)
     if (!this.state.userAddress) {
       const accounts = await this.props.drizzle.web3.eth.getAccounts();
       this.setState({ userAddress: accounts[0] });
@@ -42,11 +43,11 @@ export default class DonateComponent extends Component {
     } catch (error) {
       console.log(error)
     }
-    this.setState ({
+    this.state = {
       name: "",
       description: "",
       amountNeeded: ""
-    })
+    }
   }
 
 
@@ -96,6 +97,7 @@ export default class DonateComponent extends Component {
         </button>
       </div>
     </form>
+    {/* <AllProjects /> */}
     </div>
     )
   }
