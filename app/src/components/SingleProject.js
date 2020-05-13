@@ -9,8 +9,9 @@ export default class SingleProject extends Component {
   }
 
   async componentDidMount() {
+    let id = 4; //this needs to be req.params.projecrtID
     const singleProject = await this.props.drizzle.contracts.Donate.methods
-      .readSingleProject(4)
+      .readSingleProject(id)
       .call();
     this.setState({
       singleProject,
@@ -19,7 +20,9 @@ export default class SingleProject extends Component {
   }
 
   render() {
-    // const singleProject = this.state.singleProject;
+
+    let singleProject = this.state.singleProject || 'not mounted';
+    console.log(singleProject);
     // if (singleProject === 'undefined') {
     //   return <h1>No project</h1>;
     // }
@@ -33,10 +36,10 @@ export default class SingleProject extends Component {
     // );
     return (
       <div>
-        <h3>Name</h3>
-        <p>Description</p>
-        <p>Goal</p>
-        <p>Amount Donated</p>
+        <h3>{singleProject[2]}</h3>
+        <p>Description: {singleProject[3]}</p>
+        <p>Goal: {singleProject[4]}</p>
+        <p>Amount Donated: {singleProject[5]}</p>
       </div>
     );
   }
