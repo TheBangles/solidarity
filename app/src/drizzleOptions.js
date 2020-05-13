@@ -5,8 +5,8 @@ import Migrations from './contracts/Migrations.json';
 const options = {
   web3: {
     block: false,
-    // customProvider: new Web3("ws://localhost:7545"),
-    customProvider: new Web3(window.web3.currentProvider),
+    customProvider: new Web3("ws://localhost:7545"),
+    // customProvider: new Web3(window.web3.currentProvider),
   },
 
   contracts: [Migrations, Donate],
