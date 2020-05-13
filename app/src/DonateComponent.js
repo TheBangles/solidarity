@@ -42,7 +42,7 @@ export default class DonateComponent extends Component {
     } catch (error) {
       console.log(error)
     }
-    this.state = {
+    this.setState = {
       name: "",
       description: "",
       amountNeeded: ""
