@@ -3,7 +3,7 @@ import { DrizzleContext } from '@drizzle/react-plugin';
 import { Drizzle } from '@drizzle/store';
 import drizzleOptions from './drizzleOptions';
 import AddProject from './components/AddProject';
-import SingleProject from './SingleProject';
+import SingleProject from './components/SingleProject';
 import './App.css';
 
 const drizzle = new Drizzle(drizzleOptions);

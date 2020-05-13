@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-
+import React, { Component } from 'react';
 
 export default class SingleProject extends Component {
-  constructor (props) {
-    super()
+  constructor(props) {
+    super();
   }
 
-  async componentDidMount(){
-    //  const singleProject = await this.props.drizzle.contracts.Donate.methods
-    //    .readSingleProject(req.params.id)
-    //    .call();
+  async componentDidMount() {
+    // const singleProject = await this.props.drizzle.contracts.Donate.methods
+    //   .readSingleProject(4)
+    //   .call();
+    // console.log('singlee', singleProject);
   }
 
-  render(){
+  render() {
     return (
       <div>
         <h3>Single Component</h3>
