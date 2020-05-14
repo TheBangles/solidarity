@@ -107,7 +107,12 @@ contract Donate {
         allProjects[i].amountDonated);
     }
 
-    fallback() external { revert('not sure what you are trying to do'); }
+//    fallback()public {
+//        revert('not sure what you are doing');
+//    }
+    // function () public {
+    //     revert('not sure what you are doing');
+    // }
 //     //EVENTS
     //event for when a contract is created. Shows owner address, contract address and description of fundraiser
     event Project_Created(address indexed _from, address indexed _project, string _desription );
