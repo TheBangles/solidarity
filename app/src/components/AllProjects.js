@@ -41,7 +41,8 @@ export default class AllProjects extends Component {
     if (length > 0) {
       this.getAllProjects(length, projects).then((result) => {
         console.log('final', projects);
-        console.log(projects[0]);
+        console.log(projects[0][1]);
+        return <div>{projects[0][1]}</div>;
       });
     }
     return <div>HELLO</div>;
