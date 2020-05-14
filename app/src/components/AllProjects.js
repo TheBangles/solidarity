@@ -5,7 +5,7 @@ export default class AllProjects extends Component {
     super(props);
     this.drizzleState = context.drizzle;
     this.state = {
-      projects: [],
+      projects: undefined,
     };
     this.getAllProjects = this.getAllProjects.bind(this);
   }
@@ -16,6 +16,28 @@ export default class AllProjects extends Component {
       this.setState({ userAddress: accounts[0] });
     }
     this.props.drizzle.contracts.Donate.methods.getAllProjectsLength.cacheCall();
+  }
+
+  async componentDidUpdate() {
+    const { drizzle, drizzleState } = this.props;
+    const contractState = this.props.drizzleState.contracts.Donate;
+    let length;
+    let projects = [];
+    if (Object.keys(contractState.getAllProjectsLength).length > 0) {
+      length = contractState.getAllProjectsLength['0x0'].value;
+    }
+    console.log('length', length);
+    if (this.state.projects === length) {
+      console.log('undefined');
+      // this.getAllProjects(length, projects).then((data) => {
+      //   console.log('data', data[0][2]);
+      //   // this.setState({ projects: [data[0][2]] });
+      //   console.log('state', this.state.projects);
+      // });
+    } else {
+      this.setState({ projects: length });
+      console.log(this.state);
+    }
   }
 
   async getAllProjects(length, projects) {
@@ -29,19 +51,6 @@ export default class AllProjects extends Component {
   }
 
   render() {
-    const { drizzle, drizzleState } = this.props;
-    const contractState = this.props.drizzleState.contracts.Donate;
-    let length;
-    let projects = [];
-    if (Object.keys(contractState.getAllProjectsLength).length > 0) {
-      length = contractState.getAllProjectsLength['0x0'].value;
-    }
-    if (length > 0) {
-      this.getAllProjects(length, projects).then((data) => {
-        console.log(data[0][2]);
-        // this.setState({ projects: [data[0][2]] });
-      });
-    }
     return <div>HELLO</div>;
   }
 }
