@@ -5,41 +5,63 @@ export default class SingleProject extends Component {
     super();
     this.state = {
       singleProject: undefined,
+      amount: 0,
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async componentDidMount() {
-    let id = 4; //this needs to be req.params.projecrtID
+    let id = 1; //this needs to be req.params.projecrtID
     const singleProject = await this.props.drizzle.contracts.Donate.methods
       .readSingleProject(id)
       .call();
     this.setState({
       singleProject,
     });
-    console.log('singlee', this.state.singleProject);
   }
 
-  render() {
+  handleChange = (event) => {
+    this.setState({
+      amount: event.target.value,
+    });
+  };
 
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await this.props.drizzle.contracts.Donate.methods.donate(1, 1).call();
+      // .send({
+      //   value: 1,
+      // });
+      // this.setState({
+      //   amount: 0,
+      // });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  render() {
     let singleProject = this.state.singleProject || 'not mounted';
-    console.log(singleProject);
-    // if (singleProject === 'undefined') {
-    //   return <h1>No project</h1>;
-    // }
-    // return (
-    //   <div>
-    //     <h3>{singleProject[2]}</h3>
-    //     <p>Description: {singleProject[3]}</p>
-    //     <p>Goal: {singleProject[4]}</p>
-    //     <p>Amount Donated: {singleProject[5]}</p>
-    //   </div>
-    // );
     return (
       <div>
-        <h3>{singleProject[2]}</h3>
+        <h3>Project: {singleProject[2]}</h3>
         <p>Description: {singleProject[3]}</p>
         <p>Goal: {singleProject[4]}</p>
         <p>Amount Donated: {singleProject[5]}</p>
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="amount">
+            <small>Amount</small>
+          </label>
+          <input
+            onChange={this.handleChange}
+            name="amount"
+            type="number"
+            value={this.state.amount}
+          />
+          <input type="submit" value="Donate" />
+        </form>
       </div>
     );
   }
