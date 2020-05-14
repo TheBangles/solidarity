@@ -6,8 +6,7 @@ export default class AllProjects extends Component {
     super(props);
     this.drizzleState = context.drizzle;
     this.state = {
-      name: "",
-      description: ""
+      projects: []
     }
   }
 
@@ -16,23 +15,34 @@ export default class AllProjects extends Component {
       const accounts = await this.props.drizzle.web3.eth.getAccounts();
       this.setState({ userAddress: accounts[0] });
     }
-    console.log(this.props.drizzle.contracts.Donate.methods.getAllProjectsLength.cacheCall());
+    this.props.drizzle.contracts.Donate.methods.getAllProjectsLength.cacheCall();
   }
 
-
+  async getAllProjects(length) {
+    for (let i = 1; i < length+1; i++) {
+      let project = await this.props.drizzle.contracts.Donate.methods.readSingleProject(i).call()
+      this.setState({
+        projects: project
+      })
+    }
+  }
 
   render() {
     const { drizzle, drizzleState } = this.props;
     const contractState = this.props.drizzleState.contracts.Donate;
     let mapArray = [];
 
-    if (contractState.getAllProjectsLength[1]) {
-      mapArray = contractState.getAllProjectsLength[1].value;
-    console.log(mapArray)
+    if (contractState.getAllProjectsLength['0x0']) {
+      mapArray = contractState.getAllProjectsLength['0x0'].value;
     }
+    let length = mapArray
+    console.log(length)
+
+    // console.log(this.getAllProjects(length))
+    console.log(this.state.projects)
     return (
       <div>
-        HELLO WORLD
+        HELLO
       </div>
     )
   }

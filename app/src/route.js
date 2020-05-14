@@ -28,7 +28,7 @@ export default class Routes extends Component {
           />
           <Route
             exact
-            path="/allprojects"
+            path="/all"
             render={() => <AllProjects {...this.props} />}
           />
 

@@ -22,8 +22,8 @@ const App = () => {
 
           return(
           <div>
-            <Navbar />;
-            <Route drizzle={drizzle} drizzleState={drizzleState} />;
+            <Navbar />
+            <Route drizzle={drizzle} drizzleState={drizzleState} />
           </div>
           )
         }}
