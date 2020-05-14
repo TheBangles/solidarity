@@ -2,8 +2,8 @@ import React from 'react';
 import { DrizzleContext } from '@drizzle/react-plugin';
 import { Drizzle } from '@drizzle/store';
 import drizzleOptions from './drizzleOptions';
-import AddProject from './components/AddProject';
-import SingleProject from './components/SingleProject';
+import Route from './route';
+
 import './App.css';
 
 const drizzle = new Drizzle(drizzleOptions);
@@ -19,12 +19,7 @@ const App = () => {
             return 'Loading...';
           }
 
-          return (
-            <div>
-              <SingleProject drizzle={drizzle} drizzleState={drizzleState} />
-              <AddProject drizzle={drizzle} drizzleState={drizzleState} />
-            </div>
-          );
+          return <Route drizzle={drizzle} drizzleState={drizzleState} />;
         }}
       </DrizzleContext.Consumer>
     </DrizzleContext.Provider>
