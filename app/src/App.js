@@ -1,10 +1,10 @@
-import React from 'react';
-import { DrizzleContext } from '@drizzle/react-plugin';
-import { Drizzle } from '@drizzle/store';
-import drizzleOptions from './drizzleOptions';
-// import MyComponent from "./MyComponent";
-import DonateComponent from './DonateComponent';
-import './App.css';
+import React from "react";
+import { DrizzleContext } from "@drizzle/react-plugin";
+import { Drizzle } from "@drizzle/store";
+import drizzleOptions from "./drizzleOptions";
+import Route from './route';
+
+import "./App.css";
 
 const drizzle = new Drizzle(drizzleOptions);
 
@@ -20,8 +20,8 @@ const App = () => {
           }
 
           return (
-            <DonateComponent drizzle={drizzle} drizzleState={drizzleState} />
-          );
+            <Route drizzle={drizzle} drizzleState={drizzleState} />
+          )
         }}
       </DrizzleContext.Consumer>
     </DrizzleContext.Provider>
