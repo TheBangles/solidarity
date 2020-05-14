@@ -26,8 +26,8 @@ export default class AllProjects extends Component {
     const contractState = this.props.drizzleState.contracts.Donate;
     let mapArray = [];
 
-    if (contractState.getAllProjectsLength['0x0']) {
-      mapArray = contractState.getAllProjectsLength['0x0'].value;
+    if (contractState.getAllProjectsLength[1]) {
+      mapArray = contractState.getAllProjectsLength[1].value;
     console.log(mapArray)
     }
     return (

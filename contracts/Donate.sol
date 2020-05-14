@@ -78,6 +78,9 @@ contract Donate {
         revert('Project does not exist!');
     }
 
+     function getAllProjectsLength() public view returns (uint) {
+        return allProjects.length;
+    }
 
 
     function endProject(uint id) public payable {
