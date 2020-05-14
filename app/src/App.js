@@ -3,6 +3,7 @@ import { DrizzleContext } from '@drizzle/react-plugin';
 import { Drizzle } from '@drizzle/store';
 import drizzleOptions from './drizzleOptions';
 import Route from './route';
+import Navbar from './components/Navbar'
 
 import './App.css';
 
@@ -19,7 +20,12 @@ const App = () => {
             return 'Loading...';
           }
 
-          return <Route drizzle={drizzle} drizzleState={drizzleState} />;
+          return(
+          <div>
+            <Navbar />;
+            <Route drizzle={drizzle} drizzleState={drizzleState} />;
+          </div>
+          )
         }}
       </DrizzleContext.Consumer>
     </DrizzleContext.Provider>
