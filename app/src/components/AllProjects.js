@@ -26,17 +26,27 @@ export default class AllProjects extends Component {
     if (Object.keys(contractState.getAllProjectsLength).length > 0) {
       length = contractState.getAllProjectsLength['0x0'].value;
     }
-    console.log('length', length);
-    if (this.state.projects === length) {
-      console.log('undefined');
-      // this.getAllProjects(length, projects).then((data) => {
-      //   console.log('data', data[0][2]);
-      //   // this.setState({ projects: [data[0][2]] });
-      //   console.log('state', this.state.projects);
-      // });
-    } else {
-      this.setState({ projects: length });
-      console.log(this.state);
+
+    if (length) {
+      // if (this.state.projects === length) {
+      //   console.log('undefined');
+      // } else {
+      const data = await this.getAllProjects(length, projects);
+      console.log('data', data);
+      // }
+
+      // if (this.state.projects === length) {
+      //   console.log('undefined');
+      // } else {
+      //   this.getAllProjects(length, projects).then((data) => {
+      //     console.log('data', data);
+      //     // this.setState({ projects: data });
+      //     // console.log('data', data[0][2]);
+      //     // this.setState({ projects: [data[0][2]] });
+      //     // console.log('state', this.state.projects);
+      //   });
+      //   console.log(this.state);
+      // }
     }
   }
 
