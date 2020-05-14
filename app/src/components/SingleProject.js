@@ -23,6 +23,7 @@ export default class SingleProject extends Component {
 
   handleChange = (event) => {
     this.setState({
+      // update amount donated
       amount: event.target.value,
     });
   };
@@ -30,13 +31,12 @@ export default class SingleProject extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await this.props.drizzle.contracts.Donate.methods.donate(1, 1).call();
-      // .send({
-      //   value: 1,
-      // });
-      // this.setState({
-      //   amount: 0,
-      // });
+      await this.props.drizzle.contracts.Donate.methods.donate(1).send({
+        value: 1,
+      });
+      this.setState({
+        amount: 0,
+      });
     } catch (error) {
       console.log(error);
     }
