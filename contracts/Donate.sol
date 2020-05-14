@@ -105,7 +105,9 @@ contract Donate {
         allProjects[i].description,
         allProjects[i].amountNeeded,
         allProjects[i].amountDonated);
-  }
+    }
+
+    fallback() external { revert('not sure what you are trying to do'); }
 //     //EVENTS
     //event for when a contract is created. Shows owner address, contract address and description of fundraiser
     event Project_Created(address indexed _from, address indexed _project, string _desription );
