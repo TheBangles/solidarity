@@ -7,6 +7,7 @@ export default class AllProjects extends Component {
     this.state = {
       projects: [],
     };
+    this.getAllProjects = this.getAllProjects.bind(this);
   }
 
   async componentDidMount() {
@@ -22,10 +23,7 @@ export default class AllProjects extends Component {
       let project = await this.props.drizzle.contracts.Donate.methods
         .readSingleProject(i)
         .call();
-      // projects.push(project[2]);
       projects.push(project);
-      // console.log(i, project);
-      // console.log('projects', projects);
     }
     return projects;
   }
@@ -39,10 +37,9 @@ export default class AllProjects extends Component {
       length = contractState.getAllProjectsLength['0x0'].value;
     }
     if (length > 0) {
-      this.getAllProjects(length, projects).then((result) => {
-        console.log('final', projects);
-        console.log(projects[0][1]);
-        return <div>{projects[0][1]}</div>;
+      this.getAllProjects(length, projects).then((data) => {
+        console.log(data[0][2]);
+        // this.setState({ projects: [data[0][2]] });
       });
     }
     return <div>HELLO</div>;
