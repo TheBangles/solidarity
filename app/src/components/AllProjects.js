@@ -18,22 +18,24 @@ export default class AllProjects extends Component {
   }
 
   async getAllProjects(length) {
-    for (let i = 1; i < length + 1; i++) {
+    for (let i = 1; i <= length; i++) {
       let project = await this.props.drizzle.contracts.Donate.methods
         .readSingleProject(i)
         .call();
-      this.setState({
-        projects: project,
-      });
+      console.log(i, project);
     }
   }
 
   render() {
     const { drizzle, drizzleState } = this.props;
     const contractState = this.props.drizzleState.contracts.Donate;
-
+    let length;
+    let projects;
     if (Object.keys(contractState.getAllProjectsLength).length > 0) {
-      console.log(contractState.getAllProjectsLength['0x0'].value);
+      length = contractState.getAllProjectsLength['0x0'].value;
+    }
+    if (length > 0) {
+      this.getAllProjects(length);
     }
     return <div>HELLO</div>;
   }
