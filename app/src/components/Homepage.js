@@ -49,11 +49,11 @@ export default class Homepage extends Component {
         </div>
         <div className='social' id='social'>
           <div>Checkout Our Social Media</div>
-          <a href='https://www.facebook.com/WEmovement/'>
-            <div className='socialImg'>
-              <img src='https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png' width='50px'></img>
-            </div>
-          </a >
+            <a href='https://www.facebook.com/WEmovement/'>
+              <div className='socialImg'>
+                <img src='https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png' width='50px'></img>
+              </div>
+            </a >
           <div>© Solidarity, 2020. All Rights Reserved.</div>
         </div>
       </div>
