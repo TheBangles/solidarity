@@ -32,7 +32,7 @@ export default class SingleProject extends Component {
     event.preventDefault();
     try {
       await this.props.drizzle.contracts.Donate.methods.donate(1).send({
-        value: 1,
+        value: this.state.amount,
       });
       this.setState({
         amount: 0,
