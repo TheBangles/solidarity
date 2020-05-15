@@ -20,7 +20,7 @@ export default class Routes extends Component {
           />
           <Route
             exact
-            path="/single"
+            path="/single/:id"
             render={() => <SingleProject {...this.props} />}
           />
           <Route
@@ -29,7 +29,9 @@ export default class Routes extends Component {
             render={() => <AllProjects {...this.props} />}
           />
 
-          <Route path="/" component={Homepage} />
+          <Route path="/"
+            render={() => <Homepage {...this.props}/> }
+          />
         </Switch>
       </Router>
     );
