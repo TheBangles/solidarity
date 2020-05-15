@@ -1,49 +1,4 @@
-// pragma solidity >=0.4.21 <0.7.0;
-// contract Donate {
-//     struct Project {
-//         uint id;
-//         address recipient;
-//         string projectName;
-//         string description;
-//         uint amountNeeded;
-//         uint amountDonated;
-//         bool ongoing;
-//         address[] donorsArray;  // [ {address:donorAddress, amount}  ]
-//         mapping(address=>uint) donors;
-//     }
-//     struct Donor {
-//         address donorAddress;
-//         uint amount;
-//     }
-//     uint public nextId = 1;
-//     Donor[] public allDonors;
-//     Project[] public allProjects;// we keep track of all the fundraisers here.
-//     function createDonationStruct(uint amount) public {
-//             Donor memory newDonor = Donor({
-//                 donorAddress: msg.sender,
-//                 amount: amount
-//             });
-//             allDonors.push(newDonor);
-//         }
-//     function donate(address recipient, uint amount) public {
-//         //click donate on project
-//         //find project
-//     }
-//     function createProjectStruct (string memory name, string memory description, uint amountNeeded ) public{
-//         Project memory newProject = Project({
-//             id: nextId,
-//             recipient: msg.sender,
-//             projectName: name,
-//             description: description,
-//             amountNeeded: amountNeeded,
-//             amountDonated: 0,
-//             ongoing: true,
-//             donorsArray: new address[](0)//not sure
-//         });
-//         allProjects.push(newProject);
-//         nextId++;
-//     }
-// }
+
 
 pragma solidity >=0.4.21 <0.7.0;
 
@@ -123,6 +78,9 @@ contract Donate {
         revert('Project does not exist!');
     }
 
+     function getAllProjectsLength() public view returns (uint) {
+        return allProjects.length;
+    }
 
 
     function endProject(uint id) public payable {
@@ -147,7 +105,14 @@ contract Donate {
         allProjects[i].description,
         allProjects[i].amountNeeded,
         allProjects[i].amountDonated);
-  }
+    }
+
+//    fallback()public {
+//        revert('not sure what you are doing');
+//    }
+    // function () public {
+    //     revert('not sure what you are doing');
+    // }
 //     //EVENTS
     //event for when a contract is created. Shows owner address, contract address and description of fundraiser
     event Project_Created(address indexed _from, address indexed _project, string _desription );

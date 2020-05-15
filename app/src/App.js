@@ -2,8 +2,9 @@ import React from 'react';
 import { DrizzleContext } from '@drizzle/react-plugin';
 import { Drizzle } from '@drizzle/store';
 import drizzleOptions from './drizzleOptions';
-import AllProjects from "./AllProjects";
-import DonateComponent from './DonateComponent';
+import Route from './route';
+import Navbar from './components/Navbar';
+
 import './App.css';
 import Route from './route'
 
@@ -22,9 +23,8 @@ const App = () => {
 
           return (
             <div>
-              {/* <DonateComponent drizzle={drizzle} drizzleState={drizzleState} />
-              <AllProjects drizzle={drizzle} drizzleState={drizzleState} /> */}
-              <Route drizzle={drizzle} drizzleState={drizzleState}/>
+              <Navbar />
+              <Route drizzle={drizzle} drizzleState={drizzleState} />
             </div>
           );
         }}
