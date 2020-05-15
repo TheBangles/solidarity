@@ -103,6 +103,18 @@ contract Donate {
         allProjects[i].amountNeeded,
         allProjects[i].amountDonated);
   }
+
+//   function trendingProjects(uint amountNeeded, uint amountDonated) public view returns(uint[]){
+//       uint ids = [];
+
+//       uint128 public percent = uint amountDonated / uint amountNeeded
+
+//     //   Project[] public allProjects
+//     for(uint i = 0; i < allProjects.length; )
+
+//       return ids;
+//   }
+
 //     //EVENTS
     //event for when a contract is created. Shows owner address, contract address and description of fundraiser
     event Project_Created(address indexed _from, address indexed _project, string _desription );
