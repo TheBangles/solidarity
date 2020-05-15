@@ -28,25 +28,16 @@ export default class AllProjects extends Component {
     }
 
     if (length) {
-      // if (this.state.projects === length) {
-      //   console.log('undefined');
-      // } else {
       const data = await this.getAllProjects(length, projects);
-      console.log('data', data);
-      // }
+      console.log('BEFORE--data', data);
+      console.log('BEFORE--state', this.state.projects);
 
-      // if (this.state.projects === length) {
-      //   console.log('undefined');
-      // } else {
-      //   this.getAllProjects(length, projects).then((data) => {
-      //     console.log('data', data);
-      //     // this.setState({ projects: data });
-      //     // console.log('data', data[0][2]);
-      //     // this.setState({ projects: [data[0][2]] });
-      //     // console.log('state', this.state.projects);
-      //   });
-      //   console.log(this.state);
-      // }
+      if (this.state.projects) console.log('done');
+      else {
+        this.setState({ projects: data });
+        console.log('AFTER--data');
+        console.log('AFTER--state', this.state.projects);
+      }
     }
   }
 
