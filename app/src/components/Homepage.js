@@ -13,7 +13,6 @@ export default class Homepage extends Component {
       <div>
         <div>
           <div className='home'>
-            <Navbar/>
             <div className='homeName' id='homeName'> Solidarity </div>
             <div className="herf">
               {/* <a href="#homeName">Social</a> // for driecting to all projects */}
@@ -27,7 +26,7 @@ export default class Homepage extends Component {
         </div>
         <div className='about' id='about'>
           <h1 className='about-title' id='about-title'> About Solidarity </h1> <br/>
-          <dic className='container'>
+          <div className='container'>
             <div className='homeImage'>
             <img src='https://pics.awwmemes.com/no-act-of-kindness-no-matter-how-small-is-ever-31510453.png' />
             </div>
@@ -40,12 +39,12 @@ export default class Homepage extends Component {
                   In Africa, Asia and Latin America, we partner with communities to implement WE Villages, a holistic, five-pillar international development model designed to achieve sustainable change. Together with local leaders and families, we transform lives with solutions that are adaptive, effective and sustained long term by the community itself.
                 </div>
             </div>
-          </dic>
+          </div>
         </div>
         <div className='home-learn-more' id='home-learn-more'> Learn More About Us </div>
         <div>
           <div className='trending' id='trending'>Trending Projects</div>
-          <Trendings/>
+          {/* <Trendings/> */}
         </div>
         <div>
           <div className='impacts' id='impacts'>Solidarity by the numbers / impacts</div>
