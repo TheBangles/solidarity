@@ -137,6 +137,10 @@ contract Donate {
         );
     }
 
+    fallback() external {
+        revert('not sure what you are doing');
+    }
+
     //     //EVENTS
     //event for when a contract is created. Shows owner address, contract address and description of fundraiser
     event Project_Created(
