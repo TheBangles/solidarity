@@ -20,7 +20,7 @@ export default class Routes extends Component {
           />
           <Route
             exact
-            path="/single"
+            path="/single/:id"
             render={() => <SingleProject {...this.props} />}
           />
           <Route
