@@ -9,7 +9,6 @@ const Navbar = () => (
         <Link to="/"> Solidarity </Link>
         <Link to="/all"> AllProject </Link>
         {/* siingle project link just for testing purpose, delete when finish allproject */}
-        <Link to="single"> Single Project </Link>
         <Link to="/add"> Create Your Own Project </Link>
       </div>
     </nav>

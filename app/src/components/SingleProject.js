@@ -12,7 +12,7 @@ export default class SingleProject extends Component {
   }
 
   async componentDidMount() {
-    let id = 1; //this needs to be req.params.projecrtID
+    let id = this.props.history.location.pathname.slice(8)
     const singleProject = await this.props.drizzle.contracts.Donate.methods
       .readSingleProject(id)
       .call();
@@ -29,9 +29,10 @@ export default class SingleProject extends Component {
   };
 
   handleSubmit = async (event) => {
+    let id = this.props.history.location.pathname.slice(8)
     event.preventDefault();
     try {
-      await this.props.drizzle.contracts.Donate.methods.donate(1).send({
+      await this.props.drizzle.contracts.Donate.methods.donate(id).send({
         value: this.state.amount,
       });
       this.setState({
