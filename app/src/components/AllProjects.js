@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 export default class AllProjects extends Component {
   constructor(props, context) {
@@ -58,11 +59,21 @@ export default class AllProjects extends Component {
     return this.state.projects ? (
       this.state.projects.map((project) => (
         <div key={project[0]}>
-          <h1>Project # {project[0]}</h1>
-          <h3>Name: {project[2]}</h3>
-          <h3>Description: {project[3]}</h3>
-          <h3>Amount Needed: {project[4]}</h3>
-          <h3>Amount Donated: {project[5]}</h3>
+          <Link to={`/single`}>
+            <h1>Project # {project[0]}</h1>
+          </Link>
+          <Link to={`/single`}>
+            <h3>Name: {project[2]}</h3>
+          </Link>
+           <Link to={`/single`}>
+            <h3>Description: {project[3]}</h3>
+          </Link>
+          <Link to={`/single`}>
+            <h3>Amount Needed: {project[4]}</h3>
+          </Link>
+          <Link to={`/single`}>
+            <h3>Amount Donated: {project[5]}</h3>
+          </Link>
         </div>
       ))
     ) : (
