@@ -78,6 +78,9 @@ contract Donate {
         revert('Project does not exist!');
     }
 
+     function getAllProjectsLength() public view returns (uint) {
+        return allProjects.length;
+    }
 
 
     function endProject(uint id) public payable {
@@ -116,6 +119,14 @@ contract Donate {
     //     return ids;
     // }
 
+    }
+
+//    fallback()public {
+//        revert('not sure what you are doing');
+//    }
+    // function () public {
+    //     revert('not sure what you are doing');
+    // }
 //     //EVENTS
     //event for when a contract is created. Shows owner address, contract address and description of fundraiser
     event Project_Created(address indexed _from, address indexed _project, string _desription );
