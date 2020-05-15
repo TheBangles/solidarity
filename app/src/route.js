@@ -10,7 +10,7 @@ import AllProjects from './components/AllProjects';
 export default class Routes extends Component {
   render() {
     return (
-      <Router history={history}>
+      <Router history={history} >
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route
@@ -20,16 +20,17 @@ export default class Routes extends Component {
           />
           <Route
             exact
-            path="/single"
-            render={() => <SingleProject {...this.props} />}
+            path="/single/:id"
+            render={() => <SingleProject {...this.props} history={history}/>}
           />
           <Route
             exact
             path="/all"
             render={() => <AllProjects {...this.props} />}
           />
-
-          <Route path="/" component={Homepage} />
+          <Route path="/"
+            render={() => <Homepage {...this.props}/> }
+          />
         </Switch>
       </Router>
     );
