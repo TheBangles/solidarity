@@ -52,6 +52,19 @@ export default class AllProjects extends Component {
   }
 
   render() {
-    return <div>HELLO</div>;
+    return this.state.projects ? (
+      this.state.projects.map((project) => (
+        <div key={project[0]}>
+          <h1>Project{project[0]}</h1>
+          <h3>{project[2]}</h3>
+          <h3>{project[3]}</h3>
+          <h3>{project[4]}</h3>
+          <h3>{project[5]}</h3>
+        </div>
+      ))
+    ) : (
+      // <div>{this.state.projects[0][1]}</div>
+      <div>Hello</div>
+    );
   }
 }
