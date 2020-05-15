@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../App.css';
-import Navbar from './Navbar';
 import Trendings from './Trendings';
 
 export default class Homepage extends Component {
@@ -15,7 +14,6 @@ export default class Homepage extends Component {
           <div className='home'>
             <div className='homeName' id='homeName'> Solidarity </div>
             <div className="herf">
-              {/* <a href="#homeName">Social</a> // for driecting to all projects */}
               <a href="#about-title"> About </a>
               <a href="#home-learn-more"> Learn More About Us </a>
               <a href="#trending"> Trending Projects </a>
@@ -24,6 +22,7 @@ export default class Homepage extends Component {
             </div>
           </div>
         </div>
+
         <div className='about' id='about'>
           <h1 className='about-title' id='about-title'> About Solidarity </h1> <br/>
           <div className='container'>
@@ -41,14 +40,18 @@ export default class Homepage extends Component {
             </div>
           </div>
         </div>
+
         <div className='home-learn-more' id='home-learn-more'> Learn More About Us </div>
+
         <div>
           <div className='trending' id='trending'>Trending Projects</div>
           {/* <Trendings/> */}
         </div>
+
         <div>
           <div className='impacts' id='impacts'>Solidarity by the numbers / impacts</div>
         </div>
+
         <div className='social' id='social'>
           <div>Checkout Our Social Media</div>
             <a href='https://www.facebook.com/WEmovement/'>
