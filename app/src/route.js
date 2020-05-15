@@ -29,7 +29,9 @@ export default class Routes extends Component {
             render={() => <AllProjects {...this.props} />}
           />
 
-          <Route path="/" component={Homepage} />
+          <Route path="/"
+            render={() => <Homepage {...this.props}/> }
+          />
         </Switch>
       </Router>
     );

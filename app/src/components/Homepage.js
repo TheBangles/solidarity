@@ -45,7 +45,7 @@ export default class Homepage extends Component {
 
         <div>
           <div className='trending' id='trending'>Trending Projects</div>
-          {/* <Trendings/> */}
+          <Trendings {...this.props} />
         </div>
 
         <div>
