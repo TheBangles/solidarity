@@ -107,18 +107,6 @@ contract Donate {
         allProjects[i].amountDonated);
   }
 
-    // function trendingProjects(uint amountNeeded, uint amountDonated) public view returns(uint[]){
-    //     uint ids = [];
-
-    //     uint128 public percent = uint amountDonated / uint amountNeeded;
-
-    //     //   Project[] public allProjects
-    //     for(uint i = 0; i < allProjects.length; i++) {
-    //         uint ids.push(allProjects[i]);
-    //     }
-    //     return ids;
-    // }
-
     }
 
 //    fallback()public {
