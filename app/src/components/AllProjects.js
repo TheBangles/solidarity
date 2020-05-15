@@ -19,24 +19,27 @@ export default class AllProjects extends Component {
   }
 
   async componentDidUpdate() {
+    // component and its parent component rerenders a few times - not sure why
     const { drizzle, drizzleState } = this.props;
-    const contractState = this.props.drizzleState.contracts.Donate;
+    const { Donate } = this.props.drizzleState.contracts;
     let length;
     let projects = [];
-    if (Object.keys(contractState.getAllProjectsLength).length > 0) {
-      length = contractState.getAllProjectsLength['0x0'].value;
+
+    // Donate.getAllProjectsLength only has keys (e.g. ['0x0']) after the third re-render. comment back console.log below to find out:
+    // console.log('Donate.getAllProjects.Length', Donate.getAllProjectsLength);
+    if (Object.keys(Donate.getAllProjectsLength).length > 0) {
+      length = Donate.getAllProjectsLength['0x0'].value;
     }
 
+    // length is defined only after third re-render
     if (length) {
       const data = await this.getAllProjects(length, projects);
-      console.log('BEFORE--data', data);
-      console.log('BEFORE--state', this.state.projects);
+      // console.log('BEFORE STATE UPDATED', this.state.projects);
 
-      if (this.state.projects) console.log('done');
-      else {
+      // stop updating state if this.state.projects is defined/updated with ^^^data^^^
+      if (!this.state.projects) {
         this.setState({ projects: data });
-        console.log('AFTER--data');
-        console.log('AFTER--state', this.state.projects);
+        // console.log('AFTER STATE UPDATED', this.state.projects);
       }
     }
   }
@@ -55,16 +58,15 @@ export default class AllProjects extends Component {
     return this.state.projects ? (
       this.state.projects.map((project) => (
         <div key={project[0]}>
-          <h1>Project{project[0]}</h1>
-          <h3>{project[2]}</h3>
-          <h3>{project[3]}</h3>
-          <h3>{project[4]}</h3>
-          <h3>{project[5]}</h3>
+          <h1>Project # {project[0]}</h1>
+          <h3>Name: {project[2]}</h3>
+          <h3>Description: {project[3]}</h3>
+          <h3>Amount Needed: {project[4]}</h3>
+          <h3>Amount Donated: {project[5]}</h3>
         </div>
       ))
     ) : (
-      // <div>{this.state.projects[0][1]}</div>
-      <div>Hello</div>
+      <div>Loading...</div>
     );
   }
 }
