@@ -1,5 +1,4 @@
 
-
 pragma solidity >=0.4.21 <0.7.0;
 
 contract Donate {
@@ -105,8 +104,6 @@ contract Donate {
         allProjects[i].description,
         allProjects[i].amountNeeded,
         allProjects[i].amountDonated);
-  }
-
     }
 
 //    fallback()public {
