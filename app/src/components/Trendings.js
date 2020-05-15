@@ -22,10 +22,19 @@ export default class Trendings extends React.Component {
     }
 
     // Sort:
+    projects.sort((first, second) => {
+      const firstPercent = first[5]/first[4];
+      const secondPercent = second[5]/second[4];
 
+      if (firstPercent > secondPercent) {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
 
     this.setState({
-      projects: projects
+      projects: projects.slice(0, 6)
     });
   }
 
@@ -40,11 +49,7 @@ export default class Trendings extends React.Component {
           <div key={project[0]}>
             <Link to={`/single`}>
               <div> Name: {project[2]}</div>
-            </Link>
-            <Link to={`/single`}>
               <div> Goal: {project[4]}</div>
-            </Link>
-            <Link to={`/single`}>
               <div> Pecentage Reached: {project[5]/project[4]}% </div>
             </Link>
           </div>
