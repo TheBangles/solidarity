@@ -17,8 +17,8 @@ export default class Homepage extends Component {
               Solidarity is a decentralized platform with a fully transparent smart contract on the Ethereum blockchain that allows people to donate a certain amount to a charity of choice, which only gets sent if the charity's goal is met.
               Solidarity guarantees 100% transparency as our smart contract is fully open-source.
           </div>
-          <div id="image">
-            <img src='https://pics.awwmemes.com/no-act-of-kindness-no-matter-how-small-is-ever-31510453.png' />
+          <div class="image">
+            <img src='https://www.thepongofund.org/wp-content/uploads/2015/06/Quote-1898205_641455502599124_1991305080_n-FB-6-9-15.jpg' />
           </div>
         </div>
       </div>

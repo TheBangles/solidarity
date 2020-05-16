@@ -5,10 +5,10 @@
 }
 
 .image {
-  display: flex;
-  justify-content: center;
-
-  position: absolute;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .flex {
