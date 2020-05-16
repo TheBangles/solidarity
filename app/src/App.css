@@ -10,3 +10,58 @@
 
   position: absolute;
 }
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.flex ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex aside {
+  width: 100%;
+}
+
+.flex > section {
+  background: #56bcd2;
+  padding: 1em;
+  margin: 0.5em;
+  border-radius: 4px;
+}
+
+.flex ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flex li {
+  background: #f6b1d0;
+  font-weight: 700;
+  padding: 0.3em 0.6em;
+  border-radius: 1em;
+  text-align: center;
+}
+
+
+.flex > section {
+  display: flex;
+  align-items: center;
+  width: 32%;
+  padding-bottom: 32%;
+  margin-bottom: 2%;
+  position: relative;
+}
+
+.flex > section > p {
+  flex-grow: 1;
+}
+
+@media (max-width: 1600px) {
+  .flex > section {
+    max-width: 250px;
+  }
+}

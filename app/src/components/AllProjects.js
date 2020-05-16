@@ -58,7 +58,7 @@ export default class AllProjects extends Component {
   render() {
     return this.state.projects ? (
       this.state.projects.map((project) => (
-        <div key={project[0]}>
+        <div class="flex" key={project[0]}>
           <Link to={`/single/${project[0]}`}>
             <h1>Project # {project[0]}</h1>
             <h3>Name: {project[2]}</h3>
@@ -73,3 +73,8 @@ export default class AllProjects extends Component {
     );
   }
 }
+
+<div class="container">
+  <div class="notification">
+  </div>
+</div>

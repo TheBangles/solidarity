@@ -9,13 +9,12 @@ export default class Homepage extends Component {
 
   render() {
     return (
-
       <div class="container">
         <div class="notification">
           <span className="title"> Solidarity: A combination of Solidity and Charities</span>
           <span></span>
           <div className="text">
-              Solidarity is a decentralized platform with a fully transparent smart contract on the Ethereum blockchain that allows people to donate a certain amount to a charity of choice, which only gets sent if the charity's goal is met. {" "}
+              Solidarity is a decentralized platform with a fully transparent smart contract on the Ethereum blockchain that allows people to donate a certain amount to a charity of choice, which only gets sent if the charity's goal is met.
               Solidarity guarantees 100% transparency as our smart contract is fully open-source.
           </div>
           <div id="image">
