@@ -52,6 +52,11 @@ export default class SingleProject extends Component {
           <p>Description: {singleProject[3]}</p>
           <p>Goal: {singleProject[4]}</p>
           <p>Amount Donated: {singleProject[5]}</p>
+          <progress
+            className="progress is-primary"
+            value={singleProject[5]}
+            max={singleProject[4]}
+          />
 
           {/* Donate */}
           <form onSubmit={this.handleSubmit}>
