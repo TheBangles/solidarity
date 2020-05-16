@@ -4,6 +4,7 @@ import { Drizzle } from '@drizzle/store';
 import drizzleOptions from './drizzleOptions';
 import Route from './route';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 import './App.css';
 
@@ -24,6 +25,7 @@ const App = () => {
             <div>
               <Navbar />
               <Route drizzle={drizzle} drizzleState={drizzleState} />
+              <Footer />
             </div>
           );
         }}
