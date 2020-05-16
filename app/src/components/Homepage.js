@@ -9,7 +9,7 @@ export default class Homepage extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <div>
           <div className='home'>
             <div className='homeName' id='homeName'> Solidarity </div>
