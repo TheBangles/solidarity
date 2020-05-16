@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export default class AllProjects extends Component {
   constructor(props, context) {
@@ -57,24 +57,23 @@ export default class AllProjects extends Component {
 
   render() {
     return this.state.projects ? (
-      this.state.projects.map((project) => (
-        <div class="flex" key={project[0]}>
-          <Link to={`/single/${project[0]}`}>
-            <h1>Project # {project[0]}</h1>
-            <h3>Name: {project[2]}</h3>
-            <h3>Description: {project[3]}</h3>
-            <h3>Amount Needed: {project[4]}</h3>
-            <h3>Amount Donated: {project[5]}</h3>
-          </Link>
+      <div class="container">
+        <div class="notification">
+          {this.state.projects.map((project) => (
+            <div class="flex" key={project[0]}>
+              <Link to={`/single/${project[0]}`}>
+                <h1>Project # {project[0]}</h1>
+                <h3>Name: {project[2]}</h3>
+                <h3>Description: {project[3]}</h3>
+                <h3>Amount Needed: {project[4]}</h3>
+                <h3>Amount Donated: {project[5]}</h3>
+              </Link>
+            </div>
+          ))}
         </div>
-      ))
+      </div>
     ) : (
       <div>Loading...</div>
     );
   }
 }
-
-<div class="container">
-  <div class="notification">
-  </div>
-</div>
