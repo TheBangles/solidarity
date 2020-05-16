@@ -46,38 +46,36 @@ export default class SingleProject extends Component {
   render() {
     let singleProject = this.state.singleProject || 'not mounted';
     return (
-      <div>
-        <h3>Project: {singleProject[2]}</h3>
-        <p>Description: {singleProject[3]}</p>
-        <p>Goal: {singleProject[4]}</p>
-        <p>Amount Donated: {singleProject[5]}</p>
+      <div className="container">
+        <div className="notification">
+          <h3>Project: {singleProject[2]}</h3>
+          <p>Description: {singleProject[3]}</p>
+          <p>Goal: {singleProject[4]}</p>
+          <p>Amount Donated: {singleProject[5]}</p>
 
-        {/* Donate */}
-        <div className="container">
-          <div className="notification">
-            <form onSubmit={this.handleSubmit}>
-              {/* Amount to Donate */}
-              <div className="field">
-                <label className="label">I want to contribute</label>
-                <div className="control">
-                  <input
-                    className="input"
-                    type="number"
-                    placeholder="Number input"
-                    onChange={this.handleChange}
-                    name="amount"
-                    value={this.state.amount}
-                  />
-                </div>
+          {/* Donate */}
+          <form onSubmit={this.handleSubmit}>
+            {/* Amount to Donate */}
+            <div className="field">
+              <label className="label">I want to contribute</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  placeholder="Number input"
+                  onChange={this.handleChange}
+                  name="amount"
+                  value={this.state.amount}
+                />
               </div>
-              {/* Submit */}
-              <div className="field">
-                <div className="control">
-                  <button className="button is-link">Submit</button>
-                </div>
+            </div>
+            {/* Submit */}
+            <div className="field">
+              <div className="control">
+                <button className="button is-link">Submit</button>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     );
