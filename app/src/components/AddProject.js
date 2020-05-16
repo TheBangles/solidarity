@@ -51,47 +51,59 @@ export default class AddProject extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="name">
-              <small>Project Name</small>
-            </label>
-            <input
-              onChange={this.handleChange}
-              name="name"
-              type="text"
-              value={this.state.name}
-            />
-          </div>
-          <div>
-            <label htmlFor="description">
-              <small>Description</small>
-            </label>
-            <textarea
-              onChange={this.handleChange}
-              name="description"
-              rows="5"
-              cols="50"
-              value={this.state.description}
-            />
-          </div>
-          <div>
-            <label htmlFor="amountNeeded">
-              <small>Amount Needed</small>
-            </label>
-            <input
-              onChange={this.handleChange}
-              name="amountNeeded"
-              type="number"
-              value={this.state.amountNeeded}
-            />
-          </div>
-          <div>
-            <button type="submit">Add Project</button>
-          </div>
-        </form>
-        {/* <AllProjects /> */}
+      <div className="container">
+        <div className="notification">
+          <form onSubmit={this.handleSubmit}>
+            {/* Project Name */}
+            <div className="field">
+              <label className="label">Project Name</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Text input"
+                  onChange={this.handleChange}
+                  name="name"
+                  value={this.state.name}
+                />
+              </div>
+            </div>
+            {/* Description */}
+            <div className="field">
+              <label className="label">Description</label>
+              <div className="control">
+                <input
+                  className="textarea"
+                  type="text"
+                  placeholder="Enter description"
+                  onChange={this.handleChange}
+                  name="description"
+                  value={this.state.description}
+                />
+              </div>
+            </div>
+            {/* Amount Needed */}
+            <div className="field">
+              <label className="label">Amount Needed</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  placeholder="Number input"
+                  onChange={this.handleChange}
+                  name="amountNeeded"
+                  value={this.state.amountNeeded}
+                />
+              </div>
+            </div>
+            {/* Submit */}
+            <div className="field">
+              <div className="control">
+                <button className="button is-link">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
