@@ -1,0 +1,12 @@
+.text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+
+  position: absolute;
+}

@@ -1,21 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-// const Navbar = () => (
-//   <div>
-//     <nav>
-//       <div>
-//         {/* <Link to="/login"> Login </Link> */}
-//         <Link to="/"> Solidarity </Link>
-//         <Link to="/all"> AllProject </Link>
-//         <Link to="/add"> Create Your Own Project </Link>
-//       </div>
-
-//     </nav>
-//   </div>
-// )
-
-// export default Navbar;
+const image = "https://blog.ethereum.org/img/avatar-icon.png"
 
 const Navbar = () => {
   return (
@@ -31,8 +17,16 @@ const Navbar = () => {
 
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item" href="/">
+            <a class="navbar-item">
+              <img src={image} />
+            </a>
+
+            <a class="navbar-item">
               Solidarity
+            </a>
+
+            <a class="navbar-item" href="/">
+              Home
             </a>
 
             <a class="navbar-item" href="/all">
