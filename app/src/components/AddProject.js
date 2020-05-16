@@ -51,57 +51,59 @@ export default class AddProject extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          {/* Project Name */}
-          <div className="field">
-            <label className="label">Project Name</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                placeholder="Text input"
-                onChange={this.handleChange}
-                name="name"
-                value={this.state.name}
-              />
+      <div class="container">
+        <div class="notification">
+          <form onSubmit={this.handleSubmit}>
+            {/* Project Name */}
+            <div className="field">
+              <label className="label">Project Name</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Text input"
+                  onChange={this.handleChange}
+                  name="name"
+                  value={this.state.name}
+                />
+              </div>
             </div>
-          </div>
-          {/* Description */}
-          <div className="field">
-            <label className="label">Description</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                placeholder="Text input"
-                onChange={this.handleChange}
-                name="description"
-                value={this.state.description}
-              />
+            {/* Description */}
+            <div className="field">
+              <label className="label">Description</label>
+              <div className="control">
+                <input
+                  className="textarea"
+                  type="text"
+                  placeholder="Enter description"
+                  onChange={this.handleChange}
+                  name="description"
+                  value={this.state.description}
+                />
+              </div>
             </div>
-          </div>
-          {/* Amount Needed */}
-          <div className="field">
-            <label className="label">Amount Needed</label>
-            <div className="control">
-              <input
-                className="input"
-                type="number"
-                placeholder="Number input"
-                onChange={this.handleChange}
-                name="amountNeeded"
-                value={this.state.amountNeeded}
-              />
+            {/* Amount Needed */}
+            <div className="field">
+              <label className="label">Amount Needed</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  placeholder="Number input"
+                  onChange={this.handleChange}
+                  name="amountNeeded"
+                  value={this.state.amountNeeded}
+                />
+              </div>
             </div>
-          </div>
-          {/* Submit */}
-          <div class="field">
-            <div class="control">
-              <button class="button is-link">Submit</button>
+            {/* Submit */}
+            <div className="field">
+              <div className="control">
+                <button className="button is-link">Submit</button>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }
