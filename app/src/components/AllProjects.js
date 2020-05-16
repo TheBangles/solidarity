@@ -59,8 +59,10 @@ export default class AllProjects extends Component {
     return this.state.projects ? (
       <div class="container">
         <div class="notification">
+          <div class="columns is-desktop">
           {this.state.projects.map((project) => (
-            <div class="flex" key={project[0]}>
+            <div class="column
+            " key={project[0]}>
               <Link to={`/single/${project[0]}`}>
                 <h1>Project # {project[0]}</h1>
                 <h3>Name: {project[2]}</h3>
@@ -70,6 +72,7 @@ export default class AllProjects extends Component {
               </Link>
             </div>
           ))}
+            </div>
         </div>
       </div>
     ) : (
