@@ -12,7 +12,7 @@ export default class SingleProject extends Component {
   }
 
   async componentDidMount() {
-    let id = this.props.history.location.pathname.slice(8)
+    let id = this.props.history.location.pathname.slice(8);
     const singleProject = await this.props.drizzle.contracts.Donate.methods
       .readSingleProject(id)
       .call();
@@ -29,7 +29,7 @@ export default class SingleProject extends Component {
   };
 
   handleSubmit = async (event) => {
-    let id = this.props.history.location.pathname.slice(8)
+    let id = this.props.history.location.pathname.slice(8);
     event.preventDefault();
     try {
       await this.props.drizzle.contracts.Donate.methods.donate(id).send({
@@ -51,18 +51,34 @@ export default class SingleProject extends Component {
         <p>Description: {singleProject[3]}</p>
         <p>Goal: {singleProject[4]}</p>
         <p>Amount Donated: {singleProject[5]}</p>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="amount">
-            <small>Amount</small>
-          </label>
-          <input
-            onChange={this.handleChange}
-            name="amount"
-            type="number"
-            value={this.state.amount}
-          />
-          <input type="submit" value="Donate" />
-        </form>
+
+        {/* Donate */}
+        <div className="container">
+          <div className="notification">
+            <form onSubmit={this.handleSubmit}>
+              {/* Amount to Donate */}
+              <div className="field">
+                <label className="label">I want to contribute</label>
+                <div className="control">
+                  <input
+                    className="input"
+                    type="number"
+                    placeholder="Number input"
+                    onChange={this.handleChange}
+                    name="amount"
+                    value={this.state.amount}
+                  />
+                </div>
+              </div>
+              {/* Submit */}
+              <div className="field">
+                <div className="control">
+                  <button className="button is-link">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
