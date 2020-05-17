@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Submit from './Submit';
 
 export default class AddProject extends Component {
   constructor(props) {
@@ -97,7 +98,8 @@ export default class AddProject extends Component {
             {/* Submit */}
             <div className="field">
               <div className="control">
-                <button className="button is-link">Submit</button>
+                {/* <button className="button is-link">Submit</button> */}
+                <Submit handleSubmit={this.props.handleSubmit} />
               </div>
             </div>
           </form>
