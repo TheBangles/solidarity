@@ -12,6 +12,7 @@ export default class AllProjects extends Component {
   }
 
   async componentDidMount() {
+    console.log(this.props)
     if (!this.state.userAddress) {
       const accounts = await this.props.drizzle.web3.eth.getAccounts();
       this.setState({ userAddress: accounts[0] });
