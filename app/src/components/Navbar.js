@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-const image = "https://blog.ethereum.org/img/avatar-icon.png"
 
 const Navbar = () => {
   return (
@@ -27,13 +24,13 @@ const Navbar = () => {
 
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item">
-              <img src={image} />
-            </a>
+            <div class="navbar-item">
+              <img src="https://blog.ethereum.org/img/avatar-icon.png" />
+            </div>
 
-            <a class="navbar-item">
+            <div class="navbar-item">
               Solidarity
-            </a>
+            </div>
 
             <a class="navbar-item" href="/">
               Home
@@ -46,41 +43,7 @@ const Navbar = () => {
             <a className="navbar-item" href="/add">
               Create
             </a>
-
-            {/*
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">
-                More
-              </a> */}
-
-            {/* <div className="navbar-dropdown">
-                <a className="navbar-item">
-                  About
-                </a>
-                <a className="navbar-item">
-                  Jobs
-                </a>
-                <a className="navbar-item">
-                  Contact
-                </a>
-                <hr className="navbar-divider"/>
-                <a className="navbar-item">
-                  Report an issue
-                </a>
-              </div> */}
           </div>
-        </div>
-
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
-              {/* <a className="button is-primary">
-                  <strong>Sign up</strong> */}
-              {/* </a> */}
-              <a className="button is-light">Log in</a>
-            </div>
-          </div>
-          {/* </div> */}
         </div>
       </nav>
     </div>

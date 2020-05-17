@@ -12,6 +12,7 @@ export default class AllProjects extends Component {
   }
 
   async componentDidMount() {
+    console.log(this.props)
     if (!this.state.userAddress) {
       const accounts = await this.props.drizzle.web3.eth.getAccounts();
       this.setState({ userAddress: accounts[0] });
@@ -59,10 +60,9 @@ export default class AllProjects extends Component {
     return this.state.projects ? (
       <div class="container">
         <div class="notification">
-          <div class="columns is-desktop">
+          <div class="flex-container">
           {this.state.projects.map((project) => (
-            <div class="column
-            " key={project[0]}>
+            <div class="individual-flex" key={project[0]}>
               <Link to={`/single/${project[0]}`}>
                 <h1>Project # {project[0]}</h1>
                 <h3>Name: {project[2]}</h3>
