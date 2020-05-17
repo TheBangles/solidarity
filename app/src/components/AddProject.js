@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Submit from './Submit';
+import AddProjectForm from './AddProjectForm';
 
 export default class AddProject extends Component {
   constructor(props) {
@@ -27,8 +27,9 @@ export default class AddProject extends Component {
     });
   };
 
-  handleSubmit = async (event) => {
-    event.preventDefault();
+  // handleSubmit = async (event) => {
+  //   event.preventDefault();
+  handleSubmit = async () => {
     try {
       await this.props.drizzle.contracts.Donate.methods
         .createProjectStruct(
@@ -50,61 +51,11 @@ export default class AddProject extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="notification">
-          <form onSubmit={this.handleSubmit}>
-            {/* Project Name */}
-            <div className="field">
-              <label className="label">Project Name</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="Text input"
-                  onChange={this.handleChange}
-                  name="name"
-                  value={this.state.name}
-                />
-              </div>
-            </div>
-            {/* Description */}
-            <div className="field">
-              <label className="label">Description</label>
-              <div className="control">
-                <input
-                  className="textarea"
-                  type="text"
-                  placeholder="Enter description"
-                  onChange={this.handleChange}
-                  name="description"
-                  value={this.state.description}
-                />
-              </div>
-            </div>
-            {/* Amount Needed */}
-            <div className="field">
-              <label className="label">Amount Needed</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="number"
-                  placeholder="Number input"
-                  onChange={this.handleChange}
-                  name="amountNeeded"
-                  value={this.state.amountNeeded}
-                />
-              </div>
-            </div>
-            {/* Submit */}
-            <div className="field">
-              <div className="control">
-                {/* <button className="button is-link">Submit</button> */}
-                <Submit handleSubmit={this.props.handleSubmit} />
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+      <AddProjectForm
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        state={this.state}
+      />
     );
   }
 }
