@@ -9,9 +9,6 @@ const options = {
   },
 
   contracts: [Migrations, Donate],
-  // events: {
-  //   SimpleStorage: ["StorageSet"],
-  // },
 };
 
 export default options;
