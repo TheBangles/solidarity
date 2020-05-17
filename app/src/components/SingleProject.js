@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SingleProjectForm from './SingleProjectForm';
 
 export default class SingleProject extends Component {
   constructor(props) {
@@ -28,9 +29,10 @@ export default class SingleProject extends Component {
     });
   };
 
-  handleSubmit = async (event) => {
+  // handleSubmit = async (event) => {
+  //   event.preventDefault();
+  handleSubmit = async () => {
     let id = this.props.history.location.pathname.slice(8);
-    event.preventDefault();
     try {
       await this.props.drizzle.contracts.Donate.methods.donate(id).send({
         value: this.state.amount,
@@ -44,45 +46,14 @@ export default class SingleProject extends Component {
   };
 
   render() {
-    let singleProject = this.state.singleProject || 'not mounted';
+    // let singleProject = this.state.singleProject || 'not mounted';
+    if (!this.state.singleProject) return <h1>Loading...</h1>;
     return (
-      <div className="container">
-        <div className="notification">
-          <h3>Project: {singleProject[2]}</h3>
-          <p>Description: {singleProject[3]}</p>
-          <p>Goal: {singleProject[4]}</p>
-          <p>Amount Donated: {singleProject[5]}</p>
-          <progress
-            className="progress is-primary"
-            value={singleProject[5]}
-            max={singleProject[4]}
-          />
-
-          {/* Donate */}
-          <form onSubmit={this.handleSubmit}>
-            {/* Amount to Donate */}
-            <div className="field">
-              <label className="label">I want to contribute</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="number"
-                  placeholder="Number input"
-                  onChange={this.handleChange}
-                  name="amount"
-                  value={this.state.amount}
-                />
-              </div>
-            </div>
-            {/* Submit */}
-            <div className="field">
-              <div className="control">
-                <button className="button is-link">Submit</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+      <SingleProjectForm
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        state={this.state}
+      />
     );
   }
 }
