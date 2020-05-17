@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import AllProjects from './AllProjects'
 
 export default class AddProject extends Component {
   constructor(props) {
@@ -29,7 +28,6 @@ export default class AddProject extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log(this.props.drizzle.store.getState());
     try {
       await this.props.drizzle.contracts.Donate.methods
         .createProjectStruct(

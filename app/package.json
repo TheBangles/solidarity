@@ -12,7 +12,8 @@
     "react-dom": "^16.11.0",
     "react-metamask-login-button": "^1.0.18",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "react-toast-notifications": "^2.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
