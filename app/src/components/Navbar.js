@@ -1,7 +1,5 @@
 import React from 'react';
 
-const image = "https://blog.ethereum.org/img/avatar-icon.png"
-
 const Navbar = () => {
   return (
     <div>
@@ -27,7 +25,7 @@ const Navbar = () => {
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
             <div class="navbar-item">
-              <img src={image} />
+              <img src="https://blog.ethereum.org/img/avatar-icon.png" />
             </div>
 
             <div class="navbar-item">
