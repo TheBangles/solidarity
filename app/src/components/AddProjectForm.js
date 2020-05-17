@@ -11,8 +11,10 @@ const AddProjectForm = (props) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await handleSubmit();
-    addToast('Successfully added project!', { appearance: 'success' });
+    const toast = await handleSubmit();
+    toast
+      ? addToast('Submission successful!', { appearance: 'success' })
+      : addToast('Submission failed!', { appearance: 'error' });
   };
 
   return (

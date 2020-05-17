@@ -33,6 +33,7 @@ export default class SingleProject extends Component {
   //   event.preventDefault();
   handleSubmit = async () => {
     let id = this.props.history.location.pathname.slice(8);
+    let toast;
     try {
       await this.props.drizzle.contracts.Donate.methods.donate(id).send({
         value: this.state.amount,
@@ -40,9 +41,12 @@ export default class SingleProject extends Component {
       this.setState({
         amount: 0,
       });
+      toast = true;
     } catch (error) {
+      toast = false;
       console.log(error);
     }
+    return toast;
   };
 
   render() {

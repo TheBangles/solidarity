@@ -11,8 +11,10 @@ const SingleProjectForm = (props) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await handleSubmit();
-    addToast('Successfully donated!', { appearance: 'success' });
+    const toast = await handleSubmit();
+    toast
+      ? addToast('Donation successful!', { appearance: 'success' })
+      : addToast('Donation failed!', { appearance: 'error' });
   };
 
   return (

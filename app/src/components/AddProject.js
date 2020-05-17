@@ -30,6 +30,7 @@ export default class AddProject extends Component {
   // handleSubmit = async (event) => {
   //   event.preventDefault();
   handleSubmit = async () => {
+    let toast;
     try {
       await this.props.drizzle.contracts.Donate.methods
         .createProjectStruct(
@@ -44,9 +45,12 @@ export default class AddProject extends Component {
         amountNeeded: '',
         userAddress: '',
       });
+      toast = true;
     } catch (error) {
+      toast = false;
       console.log(error);
     }
+    return toast;
   };
 
   render() {

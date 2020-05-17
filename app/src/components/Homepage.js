@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../App.css';
 import Trendings from './Trendings';
 
@@ -11,14 +11,20 @@ export default class Homepage extends Component {
     return (
       <div class="container">
         <div class="notification">
-          <span className="title"> Solidarity: A combination of Solidity and Charities</span>
+          <span className="title">
+            {' '}
+            Solidarity: A combination of Solidity and Charities
+          </span>
           <span></span>
           <div className="text">
-              Solidarity is a decentralized platform with a fully transparent smart contract on the Ethereum blockchain that allows people to donate a certain amount to a charity of choice, which only gets sent if the charity's goal is met.
-              Solidarity guarantees 100% transparency as our smart contract is fully open-source.
+            Solidarity is a decentralized platform with a fully transparent
+            smart contract on the Ethereum blockchain that allows people to
+            donate a certain amount to a charity of choice, which only gets sent
+            if the charity's goal is met. Solidarity guarantees 100%
+            transparency as our smart contract is fully open-source.
           </div>
           <div class="image">
-            <img src='https://www.thepongofund.org/wp-content/uploads/2015/06/Quote-1898205_641455502599124_1991305080_n-FB-6-9-15.jpg' />
+            <img src="https://www.thepongofund.org/wp-content/uploads/2015/06/Quote-1898205_641455502599124_1991305080_n-FB-6-9-15.jpg" />
           </div>
         </div>
       </div>
