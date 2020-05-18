@@ -12,7 +12,7 @@ const Footer = () => {
 
           <a href="https://github.com/tiffanyhwong">Tiffany Wong</a>, and{" "}
 
-          <a href="https://github.com/bunnie-xia">Carmen Wu</a>
+          <a href="https://github.com/bunnie-xia">Xiawen Wu</a>
         </p>
       </div>
     </footer>
