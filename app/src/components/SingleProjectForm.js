@@ -23,7 +23,7 @@ const SingleProjectForm = (props) => {
         <h3>Project: {singleProject[2]}</h3>
         <p>Description: {singleProject[3]}</p>
         <p>Goal: {singleProject[4]}</p>
-        <p>Amount Donated: {singleProject[5]}</p>
+        <p>Amount Donated: {singleProject[5]} </p>
         <progress
           className="progress is-primary"
           value={singleProject[5]}

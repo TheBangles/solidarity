@@ -51,7 +51,7 @@ const AddProjectForm = (props) => {
           </div>
           {/* Amount Needed */}
           <div className="field">
-            <label className="label">Amount Needed</label>
+            <label className="label">Amount Needed (ether)</label>
             <div className="control">
               <input
                 className="input"

@@ -61,18 +61,18 @@ export default class AllProjects extends Component {
       <div class="container">
         <div class="notification">
           <div class="flex-container">
-          {this.state.projects.map((project) => (
-            <div class="individual-flex" key={project[0]}>
-              <Link to={`/single/${project[0]}`}>
-                <h1>Project # {project[0]}</h1>
-                <h3>Name: {project[2]}</h3>
-                <h3>Description: {project[3]}</h3>
-                <h3>Amount Needed: {project[4]}</h3>
-                <h3>Amount Donated: {project[5]}</h3>
-              </Link>
-            </div>
-          ))}
-            </div>
+            {this.state.projects.map((project) => (
+              <div class="individual-flex" key={project[0]}>
+                <Link to={`/single/${project[0]}`}>
+                  <h1>Project # {project[0]}</h1>
+                  <h3>Name: {project[2]}</h3>
+                  <h3>Description: {project[3]}</h3>
+                  <h3>Amount Needed(ether): {project[4]}</h3>
+                  <h3>Amount Donated(ether): {project[5]}</h3>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     ) : (
