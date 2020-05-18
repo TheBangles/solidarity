@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import AllProjects from './AllProjects'
+import AddProjectForm from './AddProjectForm';
 
 export default class AddProject extends Component {
   constructor(props) {
@@ -27,9 +27,10 @@ export default class AddProject extends Component {
     });
   };
 
-  handleSubmit = async (event) => {
-    event.preventDefault();
-    // console.log(this.props.drizzle.store.getState());
+  // handleSubmit = async (event) => {
+  //   event.preventDefault();
+  handleSubmit = async () => {
+    let toast;
     try {
       await this.props.drizzle.contracts.Donate.methods
         .createProjectStruct(
@@ -44,55 +45,21 @@ export default class AddProject extends Component {
         amountNeeded: '',
         userAddress: '',
       });
+      toast = true;
     } catch (error) {
+      toast = false;
       console.log(error);
     }
+    return toast;
   };
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="name">
-              <small>Project Name</small>
-            </label>
-            <input
-              onChange={this.handleChange}
-              name="name"
-              type="text"
-              value={this.state.name}
-            />
-          </div>
-          <div>
-            <label htmlFor="description">
-              <small>Description</small>
-            </label>
-            <textarea
-              onChange={this.handleChange}
-              name="description"
-              rows="5"
-              cols="50"
-              value={this.state.description}
-            />
-          </div>
-          <div>
-            <label htmlFor="amountNeeded">
-              <small>Amount Needed</small>
-            </label>
-            <input
-              onChange={this.handleChange}
-              name="amountNeeded"
-              type="number"
-              value={this.state.amountNeeded}
-            />
-          </div>
-          <div>
-            <button type="submit">Add Project</button>
-          </div>
-        </form>
-        {/* <AllProjects /> */}
-      </div>
+      <AddProjectForm
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        state={this.state}
+      />
     );
   }
 }

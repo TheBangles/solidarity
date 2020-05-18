@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import {Router} from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import history from './history';
+import { ToastProvider } from 'react-toast-notifications';
 
 ReactDOM.render(
   <Router history={history}>
-    <App />
+    <ToastProvider autoDismiss autoDismissTimeout={3000}>
+      <App />
+    </ToastProvider>
   </Router>,
-document.getElementById('root')
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

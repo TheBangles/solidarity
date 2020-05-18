@@ -4,10 +4,18 @@ import { Drizzle } from '@drizzle/store';
 import drizzleOptions from './drizzleOptions';
 import Route from './route';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 import './App.css';
 
 const drizzle = new Drizzle(drizzleOptions);
+
+let isLoggedIn
+if (window.web3) {
+   isLoggedIn = window.web3.currentProvider.isMetaMask
+} else {
+   isLoggedIn = false
+}
 
 const App = () => {
   return (
@@ -16,15 +24,22 @@ const App = () => {
         {(drizzleContext) => {
           const { drizzle, drizzleState, initialized } = drizzleContext;
 
-          if (!initialized) {
+          if (!initialized && isLoggedIn) {
             return 'Loading...';
           }
 
           return (
-            <div>
-              <Navbar />
-              <Route drizzle={drizzle} drizzleState={drizzleState} />
-            </div>
+            isLoggedIn
+              ?
+              <div>
+                <Navbar />
+                <Route drizzle={drizzle} drizzleState={drizzleState} />
+                <Footer />
+              </div>
+              :
+              <center>
+                Please install metaMask to use Solidarity
+              </center>
           );
         }}
       </DrizzleContext.Consumer>

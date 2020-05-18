@@ -6,12 +6,14 @@
     "@drizzle/react-components": "^1.5.1",
     "@drizzle/react-plugin": "^1.5.1",
     "@drizzle/store": "^1.5.1",
+    "bulma": "^0.8.2",
     "history": "^4.10.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-metamask-login-button": "^1.0.18",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "react-toast-notifications": "^2.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
