@@ -35,7 +35,7 @@ export default class AddProject extends Component {
     //wei to ether convertion
     // console.log(convert(this.state.amountNeeded, wei));
     let amountNeeded = convert(this.state.amountNeeded, 'ether').wei
-    console.log(amountNeeded)
+
     try {
       await this.props.drizzle.contracts.Donate.methods
         .createProjectStruct(

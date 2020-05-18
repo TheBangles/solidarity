@@ -37,7 +37,7 @@ export default class SingleProject extends Component {
     let toast;
 
     let amountDonated = convert(this.state.amount, "ether").wei;
-    console.log('wei',amountDonated)
+
     try {
       await this.props.drizzle.contracts.Donate.methods.donate(id).send({
         value: amountDonated,
