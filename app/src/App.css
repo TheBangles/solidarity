@@ -1,91 +1,29 @@
-.App {
-  text-align: center;
-  margin: 2rem;
+.text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
-.section {
-  text-align: left;
-  max-width: 720px;
-  margin: 4rem auto auto;
-}
-
-/* homepage design top */
-.home {
-  background-color: #4681b1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.homeName {
-  text-align: center;
-  padding-top: 38px;
-  padding-bottom: 15px;
-  padding-left: 30px;
-  font-size: 50px;
-}
-
-.herf a{
+.image {
   display: block;
-  text-decoration: none;
-  color: black;
-  padding-right: 30px;
-}
-
-.homeName {
-  min-height: 100px;
-}
-
-.about {
-  background-color: #a9c6dd;
-  min-height: 500px;
-  text-align: center;
-}
-
-.home-learn-more {
-  background-color: #b2bdc7;
-  min-height: 500px;
-}
-
-.homeImage {
-  padding-top: 15px;
-  padding-bottom: 45px;
-  padding-left: 40px;
+  margin-left: auto;
+  margin-right: auto;
   width: 50%;
 }
 
-.about-title {
-  padding-top: 35px;
-  padding-bottom: 15px;
-  margin: 0;
-}
-
-.container {
+.flex-container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-.container2 {
-  padding: 30px;
-  margin-right: 10px;
-  font-size: 16px;
+.individual-flex {
+  display: flex;
+  background-color: lightgray;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  border: 3px solid white;
+  border-radius: 15px;
 }
-
-.trending {
-  background-color: #d3dae0;
-  min-height: 400px;
-}
-
-.impacts {
-  background-color: #e8ecf0;
-  min-height: 300px;
-}
-
-.social {
-  background-color: #6ba1d8;
-  min-height: 300px;
-}
-
-.socialImg {
-  padding: 20px;
-}
-/* homepage design bottom */

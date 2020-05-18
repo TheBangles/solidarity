@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SingleProjectForm from './SingleProjectForm';
+const convert = require("ether-converter");
 
 export default class SingleProject extends Component {
   constructor(props) {
@@ -12,7 +14,7 @@ export default class SingleProject extends Component {
   }
 
   async componentDidMount() {
-    let id = this.props.history.location.pathname.slice(8)
+    let id = this.props.history.location.pathname.slice(8);
     const singleProject = await this.props.drizzle.contracts.Donate.methods
       .readSingleProject(id)
       .call();
@@ -28,42 +30,38 @@ export default class SingleProject extends Component {
     });
   };
 
-  handleSubmit = async (event) => {
-    let id = this.props.history.location.pathname.slice(8)
-    event.preventDefault();
+  // handleSubmit = async (event) => {
+  //   event.preventDefault();
+  handleSubmit = async () => {
+    let id = this.props.history.location.pathname.slice(8);
+    let toast;
+
+    let amountDonated = convert(this.state.amount, "ether").wei;
+
     try {
       await this.props.drizzle.contracts.Donate.methods.donate(id).send({
-        value: this.state.amount,
+        value: amountDonated,
       });
       this.setState({
         amount: 0,
       });
+      toast = true;
     } catch (error) {
+      toast = false;
       console.log(error);
     }
+    return toast;
   };
 
   render() {
-    let singleProject = this.state.singleProject || 'not mounted';
+    // let singleProject = this.state.singleProject || 'not mounted';
+    if (!this.state.singleProject) return <h1>Loading...</h1>;
     return (
-      <div>
-        <h3>Project: {singleProject[2]}</h3>
-        <p>Description: {singleProject[3]}</p>
-        <p>Goal: {singleProject[4]}</p>
-        <p>Amount Donated: {singleProject[5]}</p>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="amount">
-            <small>Amount</small>
-          </label>
-          <input
-            onChange={this.handleChange}
-            name="amount"
-            type="number"
-            value={this.state.amount}
-          />
-          <input type="submit" value="Donate" />
-        </form>
-      </div>
+      <SingleProjectForm
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        state={this.state}
+      />
     );
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+const convert = require("ether-converter");
 
 export default class AllProjects extends Component {
   constructor(props, context) {
@@ -12,6 +13,7 @@ export default class AllProjects extends Component {
   }
 
   async componentDidMount() {
+    console.log(this.props)
     if (!this.state.userAddress) {
       const accounts = await this.props.drizzle.web3.eth.getAccounts();
       this.setState({ userAddress: accounts[0] });
@@ -57,17 +59,25 @@ export default class AllProjects extends Component {
 
   render() {
     return this.state.projects ? (
-      this.state.projects.map((project) => (
-        <div key={project[0]}>
-          <Link to={`/single/${project[0]}`}>
-            <h1>Project # {project[0]}</h1>
-            <h3>Name: {project[2]}</h3>
-            <h3>Description: {project[3]}</h3>
-            <h3>Amount Needed: {project[4]}</h3>
-            <h3>Amount Donated: {project[5]}</h3>
-          </Link>
+      <div class="container">
+        <div class="notification">
+          <div class="flex-container">
+            {this.state.projects.map((project) => (
+              <div class="individual-flex" key={project[0]}>
+                <Link to={`/single/${project[0]}`}>
+                  <h1>Project # {project[0]}</h1>
+                  <h3>Name: {project[2]}</h3>
+                  <h3>Description: {project[3]}</h3>
+                  <h3>Amount Needed: {convert(project[4], 'wei').ether}</h3>
+                  <h3>
+                    Amount Donated: {convert(project[5], 'wei').ether}
+                  </h3>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
-      ))
+      </div>
     ) : (
       <div>Loading...</div>
     );
