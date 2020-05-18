@@ -5,9 +5,8 @@ import drizzleOptions from './drizzleOptions';
 import Route from './route';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
 import './App.css';
-import Route from './route'
+import MetaMask from './components/MetaMask';
 
 const drizzle = new Drizzle(drizzleOptions);
 
@@ -38,9 +37,9 @@ const App = () => {
                 <Footer />
               </div>
               :
-              <center>
-                Please install metaMask to use Solidarity
-              </center>
+              <div>
+                <MetaMask/>
+              </div>
           );
         }}
       </DrizzleContext.Consumer>
