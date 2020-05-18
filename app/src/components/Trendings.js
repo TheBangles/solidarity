@@ -11,7 +11,7 @@ export default class Trendings extends React.Component {
 
   // getAccount(): for Array only
   async componentDidMount() {
-    // length = last id of projects, in our contract, id starts at 1.
+    // length = last id of projects, in our contract, nextId starts at 1.
     const length = await this.props.drizzle.contracts.Donate.methods.nextId().call();
 
     // Get total number of projects
