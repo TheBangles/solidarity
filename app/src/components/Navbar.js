@@ -28,9 +28,9 @@ const Navbar = () => {
               <img src="https://blog.ethereum.org/img/avatar-icon.png" />
             </div>
 
-            <div class="navbar-item">
+            <a class="navbar-item" href="/">
               Solidarity
-            </div>
+            </a>
 
             <a class="navbar-item" href="/">
               Home
