@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SingleProjectForm from './SingleProjectForm';
+const convert = require("ether-converter");
 
 export default class SingleProject extends Component {
   constructor(props) {
@@ -34,9 +35,12 @@ export default class SingleProject extends Component {
   handleSubmit = async () => {
     let id = this.props.history.location.pathname.slice(8);
     let toast;
+
+    let amountDonated = convert(this.state.amount, "ether").wei;
+
     try {
       await this.props.drizzle.contracts.Donate.methods.donate(id).send({
-        value: this.state.amount,
+        value: amountDonated,
       });
       this.setState({
         amount: 0,

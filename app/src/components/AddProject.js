@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AddProjectForm from './AddProjectForm';
+const convert = require('ether-converter');
 
 export default class AddProject extends Component {
   constructor(props) {
@@ -31,12 +32,16 @@ export default class AddProject extends Component {
   //   event.preventDefault();
   handleSubmit = async () => {
     let toast;
+    //wei to ether convertion
+    // console.log(convert(this.state.amountNeeded, wei));
+    let amountNeeded = convert(this.state.amountNeeded, 'ether').wei
+
     try {
       await this.props.drizzle.contracts.Donate.methods
         .createProjectStruct(
           this.state.name,
           this.state.description,
-          this.state.amountNeeded
+          amountNeeded
         )
         .send({ from: this.state.userAddress });
       this.setState({
@@ -54,6 +59,7 @@ export default class AddProject extends Component {
   };
 
   render() {
+    console.log(this.state)
     return (
       <AddProjectForm
         handleChange={this.handleChange}
