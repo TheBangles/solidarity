@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+const convert = require("ether-converter");
 
 export default class AllProjects extends Component {
   constructor(props, context) {
@@ -67,8 +68,10 @@ export default class AllProjects extends Component {
                   <h1>Project # {project[0]}</h1>
                   <h3>Name: {project[2]}</h3>
                   <h3>Description: {project[3]}</h3>
-                  <h3>Amount Needed(ether): {project[4]}</h3>
-                  <h3>Amount Donated(ether): {project[5]}</h3>
+                  <h3>Amount Needed: {convert(project[4], 'wei').ether}</h3>
+                  <h3>
+                    Amount Donated: {convert(project[5], 'wei').ether}
+                  </h3>
                 </Link>
               </div>
             ))}

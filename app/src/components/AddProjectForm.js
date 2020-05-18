@@ -49,6 +49,20 @@ const AddProjectForm = (props) => {
               />
             </div>
           </div>
+          {/* Image URL */}
+          {/* <div className="field">
+            <label className="label">Image Url</label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                placeholder="Enter Image Url "
+                onChange={handleChange}
+                name="imageUrl"
+                value={imageUrl}
+              />
+            </div>
+          </div> */}
           {/* Amount Needed */}
           <div className="field">
             <label className="label">Amount Needed (ether)</label>

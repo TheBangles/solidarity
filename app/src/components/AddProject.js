@@ -59,7 +59,7 @@ export default class AddProject extends Component {
   };
 
   render() {
-
+    console.log(this.state)
     return (
       <AddProjectForm
         handleChange={this.handleChange}
