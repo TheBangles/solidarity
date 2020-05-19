@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <div>
       <nav
-        className="navbar is-fixed-top is-dark"
+        className="navbar is-fixed-top is-info"
         role="navigation"
         aria-label="main navigation"
       >
@@ -28,9 +28,7 @@ const Navbar = () => {
               <img src="https://blog.ethereum.org/img/avatar-icon.png" />
             </div>
 
-            <div class="navbar-item">
-              Solidarity
-            </div>
+            <div class="navbar-item">Solidarity</div>
 
             <a class="navbar-item" href="/">
               Home
@@ -44,6 +42,9 @@ const Navbar = () => {
               Create
             </a>
           </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">Status: Donor</div>
         </div>
       </nav>
     </div>
