@@ -1,6 +1,20 @@
 import React from 'react';
 
-const Navbar = () => {
+const Navbar = (props) => {
+  // console.log('props', props);
+  // console.log(
+  //   'bool',
+  //   // props.drizzle.contracts.Donate.methods.isCharity().call()
+  //   props.drizzle.contracts.Donate.methods
+  //     .isCharity()
+  //     .call()
+  //     .then((bool) => (bool ? 'Charity' : 'Donor'))
+  // );
+
+  const status = props.drizzle.contracts.Donate.methods
+    .isCharity()
+    .call()
+    .then((bool) => (bool ? 'Charity' : 'Donor'));
   return (
     <div>
       <nav
@@ -44,7 +58,16 @@ const Navbar = () => {
           </div>
         </div>
         <div class="navbar-end">
-          <div class="navbar-item">Status: Donor</div>
+          <div class="navbar-item">
+            Status:{status}
+            {/* {props.drizzle.contracts.Donate.methods.isCharity().call()
+              ? 'Charity'
+              : 'Donor'} */}
+            {/* {props.drizzle.contracts.Donate.methods
+              .isCharity()
+              .call()
+              .then((bool) => (bool ? 'Charity' : 'Donor'))} */}
+          </div>
         </div>
       </nav>
     </div>
