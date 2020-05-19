@@ -23,19 +23,19 @@ const Navbar = (props) => {
           </a>
         </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <div class="navbar-item">
+        <div id="navbarBasicExample" className="navbar-menu">
+          <div className="navbar-start">
+            <div className="navbar-item">
               <img src="https://blog.ethereum.org/img/avatar-icon.png" />
             </div>
 
-            <div class="navbar-item">Solidarity</div>
+            <div className="navbar-item">Solidarity</div>
 
-            <a class="navbar-item" href="/">
+            <a className="navbar-item" href="/">
               Home
             </a>
 
-            <a class="navbar-item" href="/all">
+            <a className="navbar-item" href="/all">
               Donate
             </a>
 
@@ -44,8 +44,8 @@ const Navbar = (props) => {
             </a>
           </div>
         </div>
-        <div class="navbar-end">
-          <div class="navbar-item">
+        <div className="navbar-end">
+          <div className="navbar-item">
             <Status {...props} />
           </div>
         </div>
