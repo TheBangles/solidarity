@@ -62,14 +62,13 @@ export default class AllProjects extends Component {
   render() {
     return this.state.projects ? (
       <div class="container">
-        <div class="notification">
-          <div class="flex-container">
+        {/* <div class="notification"> */}
+          <div className="flex-container">
             {this.state.projects.map((project) => (
-              <div class="individual-flex" key={project[0]}>
+              <div className="individual-flex" key={project[0]}>
                 <Link to={`/single/${project[0]}`}>
-                  <h1>Project # {project[0]}</h1>
                   <h3>Name: {project[2]}</h3>
-                  <img src={project[6]}/>
+                  <img src={project[6]} />
                   <h3>Description: {project[3]}</h3>
                   <h3>Amount Needed: {convert(project[4], 'wei').ether}</h3>
                   <h3>
@@ -79,7 +78,7 @@ export default class AllProjects extends Component {
               </div>
             ))}
           </div>
-        </div>
+        {/* </div> */}
       </div>
     ) : (
       <div>
