@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SingleProjectForm from './SingleProjectForm';
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 const convert = require("ether-converter");
 
 export default class SingleProject extends Component {
@@ -55,8 +57,18 @@ export default class SingleProject extends Component {
 
   render() {
     // let singleProject = this.state.singleProject || 'not mounted';
-    if (!this.state.singleProject) return <h1>Loading...</h1>;
-    return (
+    if (!this.state.singleProject) {
+      return(
+        <Loader
+           type="ThreeDots"
+           color="#83C5BE"
+           height={100}
+           width={100}
+           timeout={3000} //3 secs
+        />
+       );
+    }
+      return (
       <SingleProjectForm
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
