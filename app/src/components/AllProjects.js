@@ -69,6 +69,7 @@ export default class AllProjects extends Component {
                 <Link to={`/single/${project[0]}`}>
                   <h1>Project # {project[0]}</h1>
                   <h3>Name: {project[2]}</h3>
+                  <img src={project[6]}/>
                   <h3>Description: {project[3]}</h3>
                   <h3>Amount Needed: {convert(project[4], 'wei').ether}</h3>
                   <h3>

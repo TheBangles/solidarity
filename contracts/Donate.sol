@@ -8,6 +8,7 @@ contract Donate {
         string description;
         uint256 amountNeeded;
         uint256 amountDonated;
+        string imageUrl;
         bool ongoing;
         address projectAddress;
     }
@@ -60,7 +61,8 @@ contract Donate {
     function createProjectStruct(
         string memory name,
         string memory description,
-        uint256 amountNeeded
+        uint256 amountNeeded,
+        string memory imageUrl
     ) public {
         Project memory newProject = Project({
             id: nextId,
@@ -69,6 +71,7 @@ contract Donate {
             description: description,
             amountNeeded: amountNeeded,
             amountDonated: 0,
+            imageUrl: imageUrl,
             ongoing: true,
             projectAddress: address(this)
         });
@@ -121,6 +124,7 @@ contract Donate {
             string memory,
             uint256,
             uint256,
+            string memory,
             address
         )
     {
@@ -132,13 +136,14 @@ contract Donate {
             allProjects[i].description,
             allProjects[i].amountNeeded,
             allProjects[i].amountDonated,
+            allProjects[i].imageUrl,
             allProjects[i].projectAddress
         );
     }
 
-    // fallback() external {
-    //     revert('not sure what you are doing');
-    // }
+    function () external {
+        revert('not sure what you are doing');
+    }
 
     //     //EVENTS
     //event for when a contract is created. Shows owner address, contract address and description of fundraiser

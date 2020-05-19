@@ -22,9 +22,10 @@ const SingleProjectForm = (props) => {
     <div className="container">
       <div className="notification">
         <h3>Project: {singleProject[2]}</h3>
+        <img src={singleProject[6]} />
         <p>Description: {singleProject[3]}</p>
-        <p>Goal: {convert(singleProject[4], 'wei').ether}</p>
-        <p>Amount Donated: {convert(singleProject[5], 'wei').ether} </p>
+        <p>Goal: {convert(singleProject[4], "wei").ether}</p>
+        <p>Amount Donated: {convert(singleProject[5], "wei").ether} </p>
         <progress
           className="progress is-primary"
           value={singleProject[5]}
