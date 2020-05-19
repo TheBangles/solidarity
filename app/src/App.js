@@ -5,8 +5,10 @@ import drizzleOptions from './drizzleOptions';
 import Route from './route';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
 import './App.css';
+import MetaMask from './components/MetaMask';
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 const drizzle = new Drizzle(drizzleOptions);
 
@@ -25,7 +27,15 @@ const App = () => {
           const { drizzle, drizzleState, initialized } = drizzleContext;
 
           if (!initialized && isLoggedIn) {
-            return 'Loading...';
+            return(
+              <Loader
+                 type="ThreeDots"
+                 color="#83C5BE"
+                 height={100}
+                 width={100}
+                 timeout={3000} //3 secs
+              />
+             );
           }
 
           return (
@@ -37,9 +47,9 @@ const App = () => {
                 <Footer />
               </div>
               :
-              <center>
-                Please install metaMask to use Solidarity
-              </center>
+              <div>
+                <MetaMask/>
+              </div>
           );
         }}
       </DrizzleContext.Consumer>

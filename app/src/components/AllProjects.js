@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 const convert = require("ether-converter");
 
 export default class AllProjects extends Component {
@@ -79,7 +81,15 @@ export default class AllProjects extends Component {
         </div>
       </div>
     ) : (
-      <div>Loading...</div>
+      <div>
+        <Loader
+          type="ThreeDots"
+          color="#83C5BE"
+          height={100}
+          width={100}
+          timeout={3000} //3 secs
+        />
+      </div>
     );
   }
 }
