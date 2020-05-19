@@ -34,7 +34,7 @@ export default class AddProject extends Component {
     let toast;
     //wei to ether convertion
     // console.log(convert(this.state.amountNeeded, wei));
-    let amountNeeded = convert(this.state.amountNeeded, 'ether').wei
+    let amountNeeded = convert(this.state.amountNeeded, 'ether').wei;
 
     try {
       await this.props.drizzle.contracts.Donate.methods
@@ -59,7 +59,6 @@ export default class AddProject extends Component {
   };
 
   render() {
-    console.log(this.state)
     return (
       <AddProjectForm
         handleChange={this.handleChange}
