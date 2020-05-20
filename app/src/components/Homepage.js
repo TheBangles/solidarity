@@ -12,7 +12,7 @@ export default class Homepage extends Component {
       <div class="container">
         <div class="notification">
           <span className="title">
-            {' '}
+            {/* {' '} */}
             Solidarity: A combination of Solidity and Charities
           </span>
           <span></span>

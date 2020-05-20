@@ -29,7 +29,7 @@ const Navbar = (props) => {
               <img src="https://blog.ethereum.org/img/avatar-icon.png" />
             </div>
 
-            <div className="navbar-item">Solidarity</div>
+            {/* <div className="navbar-item">Solidarity</div> */}
 
             <a className="navbar-item" href="/">
               Home
@@ -38,15 +38,16 @@ const Navbar = (props) => {
             <a className="navbar-item" href="/all">
               Donate
             </a>
-
-            <a className="navbar-item" href="/add">
-              Create
-            </a>
           </div>
         </div>
         <div className="navbar-end">
           <div className="navbar-item">
             <Status {...props} />
+          </div>
+          <div className="navbar-item">
+            <a className="button is-white is-outlined" href="/add">
+              Create Campaign
+            </a>
           </div>
         </div>
       </nav>
