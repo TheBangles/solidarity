@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import Login from './Login';
 import Trendings from './Trendings';
 
 export default class Homepage extends Component {
@@ -18,16 +19,49 @@ export default class Homepage extends Component {
                   </h1>
 
                   <p class="subtitle is-4 has-margin-top-20 is-family-primary">
-                    Donate to Chairties with confidence using SECURE and
-                    TRANSPARENT blockchain network.
+                    Donate to chairties with confidence using{" "}
+                    <strong>SECURE</strong> and <strong>TRANSPARENT</strong>{" "}
+                    blockchain technologies.
                   </p>
+                  <a href="/all" class="has-text-centered">
+                    <button class="button is-link">Donate Today</button>
+                  </a>
                 </div>
-                <div class="column is-5 has-text-centered">
-                 <img
+                <div class="column is-half">
+                  <img
                     src="https://www.thepongofund.org/wp-content/uploads/2015/06/Quote-1898205_641455502599124_1991305080_n-FB-6-9-15.jpg"
                     alt="kids working together to rescue stranded dog out of river"
                   />
+                </div>
+              </div>
+              <div class="columns is-vcentered">
+                <div class="column is-half">
+                  <img
+                    src="https://btcmanager.com/wp-content/uploads/2018/11/7.-What-is-Truffle.jpg"
+                    alt="truffle suite"
+                  />
+                </div>
+                <div class="column is-6">
+                  <h1 class="title is-title is-size-1 has-text-weight-bold">
+                    About Us
+                  </h1>
 
+                  <p class="subtitle is-4 has-margin-top-20 is-family-primary">
+                    Solidarity is a decentralized platform with a fully
+                    transparent smart contract on the Ethereum blockchain that
+                    allows people to donate a certain amount to a charity of
+                    choice, which only gets sent if the charity's goal is met.
+                    Solidarity guarantees 100% transparency as our smart
+                    contract is fully open-source.
+                  </p>
+                  <a
+                    href="/https://github.com/TheBangles/solidarity"
+                    class="has-text-centered"
+                  >
+                    <button class="button is-link">
+                      Code with us at Solidarity
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -41,25 +75,10 @@ export default class Homepage extends Component {
       //   <div class="notification"> */}
 
 
-            {/* <span className="title">
 
-            Welcome to Solidarity
-            </span>
-            <span>Donate to Chairties with confidence using SECURE and TRANSPARENT blockchain network.</span>
 
-          <div className="text">
-            Solidarity is a decentralized platform with a fully transparent
-            smart contract on the Ethereum blockchain that allows people to
-            donate a certain amount to a charity of choice, which only gets sent
-            if the charity's goal is met. Solidarity guarantees 100%
-            transparency as our smart contract is fully open-source.
-          </div>
-          <div class="image">
-            <img
-              src="https://www.thepongofund.org/wp-content/uploads/2015/06/Quote-1898205_641455502599124_1991305080_n-FB-6-9-15.jpg"
-              alt="kids working together to rescue stranded dog out of river"
-            />
-          </div> */}
+
+
 
           {/* <div>
             <div className="trending" id="trending">
