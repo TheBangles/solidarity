@@ -19,7 +19,7 @@ export default class Homepage extends Component {
                   </h1>
 
                   <p className="subtitle is-4 has-margin-top-20 is-family-primary">
-                    Donate to chairties with confidence using{" "}
+                    Donate to charities with confidence using{" "}
                     <strong>SECURE</strong> and <strong>TRANSPARENT</strong>{" "}
                     blockchain technologies.
                   </p>
