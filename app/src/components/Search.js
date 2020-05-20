@@ -26,6 +26,8 @@ class Search extends Component {
   }
 
   async componentDidMount(){
+     // login algolia, create a index_name, and initia below
+    const index = searchClient.initIndex('project_index');
 
     // length = last id of projects, in our contract, nextId starts at 1 and we increment nextId each time we create a project
     const length = await this.props.drizzle.contracts.Donate.methods.nextId().call();
