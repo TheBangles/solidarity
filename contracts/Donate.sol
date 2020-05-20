@@ -35,10 +35,11 @@ contract Donate {
         //find project
         require(msg.value > 0, 'Please donote more then 0 amount');
         uint256 i = find(id);
-        require(
-            allProjects[i].recipient != msg.sender,
-            'Please donate from another wallet'
-        );
+        // require(
+        //     allProjects[i].recipient != msg.sender,
+        //     'Please donate from another wallet'
+        // );
+        require(isCharity() == false, 'Charities cannot donate to a campaign.');
         require(
             allProjects[i].amountDonated < allProjects[i].amountNeeded,
             'the project already raised enough money'
@@ -124,6 +125,7 @@ contract Donate {
             string memory,
             uint256,
             uint256,
+            bool,
             string memory,
             address
         )
@@ -136,6 +138,7 @@ contract Donate {
             allProjects[i].description,
             allProjects[i].amountNeeded,
             allProjects[i].amountDonated,
+            allProjects[i].ongoing,
             allProjects[i].imageUrl,
             allProjects[i].projectAddress
         );
@@ -152,6 +155,8 @@ contract Donate {
     function () external {
         revert('not sure what you are doing');
     }
+
+
 
     //     //EVENTS
     //event for when a contract is created. Shows owner address, contract address and description of fundraiser
