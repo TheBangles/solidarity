@@ -5,7 +5,7 @@ const AddProjectForm = (props) => {
   const {
     handleChange,
     handleSubmit,
-    state: { name, description, amountNeeded },
+    state: { name, description, amountNeeded, imageUrl },
   } = props;
   const { addToast } = useToasts();
 
@@ -50,7 +50,7 @@ const AddProjectForm = (props) => {
             </div>
           </div>
           {/* Image URL */}
-          {/* <div className="field">
+          <div className="field">
             <label className="label">Image Url</label>
             <div className="control">
               <input
@@ -62,7 +62,7 @@ const AddProjectForm = (props) => {
                 value={imageUrl}
               />
             </div>
-          </div> */}
+          </div>
           {/* Amount Needed */}
           <div className="field">
             <label className="label">Amount Needed (ether)</label>

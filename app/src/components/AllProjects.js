@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-const convert = require("ether-converter");
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+const convert = require('ether-converter');
 
 export default class AllProjects extends Component {
   constructor(props, context) {
@@ -13,11 +15,6 @@ export default class AllProjects extends Component {
   }
 
   async componentDidMount() {
-    console.log(this.props)
-    if (!this.state.userAddress) {
-      const accounts = await this.props.drizzle.web3.eth.getAccounts();
-      this.setState({ userAddress: accounts[0] });
-    }
     this.props.drizzle.contracts.Donate.methods.getAllProjectsLength.cacheCall();
   }
 
@@ -60,26 +57,32 @@ export default class AllProjects extends Component {
   render() {
     return this.state.projects ? (
       <div class="container">
-        <div class="notification">
-          <div class="flex-container">
+        {/* <div class="notification"> */}
+          <div className="flex-container">
             {this.state.projects.map((project) => (
-              <div class="individual-flex" key={project[0]}>
+              <div className="individual-flex" key={project[0]}>
                 <Link to={`/single/${project[0]}`}>
-                  <h1>Project # {project[0]}</h1>
                   <h3>Name: {project[2]}</h3>
+                  <img src={project[6]} alt="project"/>
                   <h3>Description: {project[3]}</h3>
                   <h3>Amount Needed: {convert(project[4], 'wei').ether}</h3>
-                  <h3>
-                    Amount Donated: {convert(project[5], 'wei').ether}
-                  </h3>
+                  <h3>Amount Donated: {convert(project[5], 'wei').ether}</h3>
                 </Link>
               </div>
             ))}
           </div>
-        </div>
+        {/* </div> */}
       </div>
     ) : (
-      <div>Loading...</div>
+      <div>
+        <Loader
+          type="ThreeDots"
+          color="#83C5BE"
+          height={100}
+          width={100}
+          timeout={3000} //3 secs
+        />
+      </div>
     );
   }
 }

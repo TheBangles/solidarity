@@ -9,6 +9,7 @@ export default class AddProject extends Component {
       name: '',
       description: '',
       amountNeeded: '',
+      imageUrl: '',
       userAddress: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -34,20 +35,22 @@ export default class AddProject extends Component {
     let toast;
     //wei to ether convertion
     // console.log(convert(this.state.amountNeeded, wei));
-    let amountNeeded = convert(this.state.amountNeeded, 'ether').wei
+    let amountNeeded = convert(this.state.amountNeeded, 'ether').wei;
 
     try {
       await this.props.drizzle.contracts.Donate.methods
         .createProjectStruct(
           this.state.name,
           this.state.description,
-          amountNeeded
+          amountNeeded,
+          this.state.imageUrl
         )
         .send({ from: this.state.userAddress });
       this.setState({
         name: '',
         description: '',
         amountNeeded: '',
+        imageUrl: '',
         userAddress: '',
       });
       toast = true;
@@ -59,7 +62,6 @@ export default class AddProject extends Component {
   };
 
   render() {
-    console.log(this.state)
     return (
       <AddProjectForm
         handleChange={this.handleChange}

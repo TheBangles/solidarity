@@ -1,10 +1,11 @@
 import React from 'react';
+import Status from './Status';
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div>
       <nav
-        className="navbar is-fixed-top is-dark"
+        className="navbar is-fixed-top is-info"
         role="navigation"
         aria-label="main navigation"
       >
@@ -15,6 +16,7 @@ const Navbar = () => {
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"
+            href="/"
           >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -22,26 +24,33 @@ const Navbar = () => {
           </a>
         </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <div class="navbar-item">
-              <img src="https://blog.ethereum.org/img/avatar-icon.png" />
-            </div>
-
-            <a class="navbar-item" href="/">
-              Solidarity
+        <div id="navbarBasicExample" className="navbar-menu">
+          <div className="navbar-start">
+            <a className="navbar-item" href="/">
+              <img
+                src="https://blog.ethereum.org/img/avatar-icon.png"
+                alt="logo"
+              />
             </a>
 
-            <a class="navbar-item" href="/">
+            {/* <div className="navbar-item">Solidarity</div> */}
+
+            <a className="navbar-item" href="/">
               Home
             </a>
 
-            <a class="navbar-item" href="/all">
+            <a className="navbar-item" href="/all">
               Donate
             </a>
-
-            <a className="navbar-item" href="/add">
-              Create
+          </div>
+        </div>
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <Status {...props} />
+          </div>
+          <div className="navbar-item">
+            <a className="button is-white is-outlined" href="/add">
+              Create Campaign
             </a>
           </div>
         </div>

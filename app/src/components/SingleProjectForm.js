@@ -19,42 +19,44 @@ const SingleProjectForm = (props) => {
   };
 
   return (
-    <div className="container">
-      <div className="notification">
-        <h3>Project: {singleProject[2]}</h3>
-        <p>Description: {singleProject[3]}</p>
-        <p>Goal: {convert(singleProject[4], 'wei').ether}</p>
-        <p>Amount Donated: {convert(singleProject[5], 'wei').ether} </p>
-        <progress
-          className="progress is-primary"
-          value={singleProject[5]}
-          max={singleProject[4]}
-        />
+    <div className="content">
+      <br></br>
+      {/* <div className="notification"> */}
+      <h3>{singleProject[2]}</h3>
+      <img class="image is-200x200" src={singleProject[6]} alt="project"/>
+      <p>Description: {singleProject[3]}</p>
+      <p>Goal: {convert(singleProject[4], "wei").ether}</p>
+      <p>Amount Donated: {convert(singleProject[5], "wei").ether} </p>
+      <progress
+        className="progress is-link"
+        value={singleProject[5]}
+        max={singleProject[4]}
+      />
 
-        {/* Donate */}
-        <form onSubmit={onSubmit}>
-          {/* Amount to Donate */}
-          <div className="field">
-            <label className="label">I want to contribute(ether)</label>
-            <div className="control">
-              <input
-                className="input"
-                type="number"
-                placeholder="Number input"
-                onChange={handleChange}
-                name="amount"
-                value={amount}
-              />
-            </div>
+      {/* Donate */}
+      <form onSubmit={onSubmit}>
+        {/* Amount to Donate */}
+        <div className="field">
+          <label className="label">I want to contribute (ether)</label>
+          <div className="control">
+            <input
+              className="input"
+              type="number"
+              placeholder="Number input"
+              onChange={handleChange}
+              name="amount"
+              value={amount}
+            />
           </div>
-          {/* Submit */}
-          <div className="field">
-            <div className="control">
-              <button className="button is-link">Submit</button>
-            </div>
+        </div>
+        {/* Submit */}
+        <div className="field">
+          <div className="control">
+            <button className="button is-link">Contribute</button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
+      {/* </div> */}
     </div>
   );
 };
