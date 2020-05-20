@@ -9,6 +9,7 @@ export default class AddProject extends Component {
       name: '',
       description: '',
       amountNeeded: '',
+      imageUrl: '',
       userAddress: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -41,13 +42,15 @@ export default class AddProject extends Component {
         .createProjectStruct(
           this.state.name,
           this.state.description,
-          amountNeeded
+          amountNeeded,
+          this.state.imageUrl
         )
         .send({ from: this.state.userAddress });
       this.setState({
         name: '',
         description: '',
         amountNeeded: '',
+        imageUrl: '',
         userAddress: '',
       });
       toast = true;

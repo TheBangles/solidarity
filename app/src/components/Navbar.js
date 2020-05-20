@@ -16,6 +16,7 @@ const Navbar = (props) => {
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"
+            href="/"
           >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -25,11 +26,14 @@ const Navbar = (props) => {
 
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-            <div className="navbar-item">
-              <img src="https://blog.ethereum.org/img/avatar-icon.png" />
-            </div>
+            <a className="navbar-item" href="/">
+              <img
+                src="https://blog.ethereum.org/img/avatar-icon.png"
+                alt="logo"
+              />
+            </a>
 
-            <div className="navbar-item">Solidarity</div>
+            {/* <div className="navbar-item">Solidarity</div> */}
 
             <a className="navbar-item" href="/">
               Home
@@ -38,15 +42,16 @@ const Navbar = (props) => {
             <a className="navbar-item" href="/all">
               Donate
             </a>
-
-            <a className="navbar-item" href="/add">
-              Create
-            </a>
           </div>
         </div>
         <div className="navbar-end">
           <div className="navbar-item">
             <Status {...props} />
+          </div>
+          <div className="navbar-item">
+            <a className="button is-white is-outlined" href="/add">
+              Create Campaign
+            </a>
           </div>
         </div>
       </nav>
