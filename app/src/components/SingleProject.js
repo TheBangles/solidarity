@@ -37,17 +37,24 @@ export default class SingleProject extends Component {
     let toast;
 
     let amountDonated = convert(this.state.amount, 'ether').wei;
+    amountDonated = parseInt(amountDonated);
 
     try {
       await this.props.drizzle.contracts.Donate.methods.donate(id).send({
         value: amountDonated,
       });
-      const update = this.state.singleProject[5] + amountDonated;
+      toast = true;
+
+      let newAmountDonated = parseInt(this.state.singleProject[5]);
+      newAmountDonated = newAmountDonated + amountDonated;
+
       this.setState({
-        singleProject: { ...this.state.singleProject, [5]: update },
+        singleProject: {
+          ...this.state.singleProject,
+          [5]: newAmountDonated,
+        },
         amount: 0,
       });
-      toast = true;
     } catch (error) {
       toast = false;
       console.log(error);
@@ -56,6 +63,7 @@ export default class SingleProject extends Component {
   };
 
   render() {
+    console.log('this.state.singleProject', this.state.singleProject)
     // let singleProject = this.state.singleProject || 'not mounted';
     if (!this.state.singleProject) {
       return (

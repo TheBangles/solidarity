@@ -42,7 +42,7 @@ const SingleProjectForm = (props) => {
             <input
               className="input"
               type="number"
-              placeholder="Number input"
+              placeholder="Amount of Ether to donate"
               onChange={handleChange}
               name="amount"
               value={amount}
