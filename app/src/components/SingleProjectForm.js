@@ -1,6 +1,6 @@
 import React from 'react';
 import { useToasts } from 'react-toast-notifications';
-const convert = require("ether-converter");
+const convert = require('ether-converter');
 
 const SingleProjectForm = (props) => {
   const {
@@ -23,10 +23,10 @@ const SingleProjectForm = (props) => {
       <br></br>
       {/* <div className="notification"> */}
       <h3>{singleProject[2]}</h3>
-      <img class="image is-200x200" src={singleProject[6]} alt="project"/>
-      <p>Description: {singleProject[3]}</p>
-      <p>Goal: {convert(singleProject[4], "wei").ether}</p>
-      <p>Amount Donated: {convert(singleProject[5], "wei").ether} </p>
+      <img className="image is-200x200" src={singleProject[7]} alt="project" />
+      <p>About: {singleProject[3]}</p>
+      <p>Goal (ether): {convert(singleProject[4], 'wei').ether}</p>
+      <p>Contributions (ether): {convert(singleProject[5], 'wei').ether} </p>
       <progress
         className="progress is-link"
         value={singleProject[5]}
@@ -42,7 +42,7 @@ const SingleProjectForm = (props) => {
             <input
               className="input"
               type="number"
-              placeholder="Number input"
+              placeholder="Amount of Ether to donate"
               onChange={handleChange}
               name="amount"
               value={amount}

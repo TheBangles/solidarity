@@ -9,44 +9,44 @@ export default class Homepage extends Component {
   render() {
     return (
       <div>
-        <section id="home" class="hero is-medium">
-          <div class="hero-body">
-            <div class="container">
-              <div class="columns is-vcentered">
-                <div class="column is-6">
-                  <h1 class="title is-title is-size-1 has-text-weight-bold">
+        <section id="home" className="hero is-medium">
+          <div className="hero-body">
+            <div className="container">
+              <div className="columns is-vcentered">
+                <div className="column is-6">
+                  <h1 className="title is-title is-size-1 has-text-weight-bold">
                     Welcome to Solidarity
                   </h1>
 
-                  <p class="subtitle is-4 has-margin-top-20 is-family-primary">
+                  <p className="subtitle is-4 has-margin-top-20 is-family-primary">
                     Donate to chairties with confidence using{" "}
                     <strong>SECURE</strong> and <strong>TRANSPARENT</strong>{" "}
                     blockchain technologies.
                   </p>
-                  <a href="/all" class="has-text-centered">
-                    <button class="button is-link">Donate Today</button>
+                  <a href="/all" className="has-text-centered">
+                    <button className="button is-link">Donate Today</button>
                   </a>
                 </div>
-                <div class="column is-half">
+                <div className="column is-half">
                   <img
                     src="https://www.thepongofund.org/wp-content/uploads/2015/06/Quote-1898205_641455502599124_1991305080_n-FB-6-9-15.jpg"
                     alt="kids working together to rescue stranded dog out of river"
                   />
                 </div>
               </div>
-              <div class="columns is-vcentered">
-                <div class="column is-half">
+              <div className="columns is-vcentered">
+                <div className="column is-half">
                   <img
                     src="https://btcmanager.com/wp-content/uploads/2018/11/7.-What-is-Truffle.jpg"
                     alt="truffle suite"
                   />
                 </div>
-                <div class="column is-6">
-                  <h1 class="title is-title is-size-1 has-text-weight-bold">
+                <div className="column is-6">
+                  <h1 className="title is-title is-size-1 has-text-weight-bold">
                     About Us
                   </h1>
 
-                  <p class="subtitle is-4 has-margin-top-20 is-family-primary">
+                  <p className="subtitle is-4 has-margin-top-20 is-family-primary">
                     Solidarity is a decentralized platform with a fully
                     transparent smart contract on the Ethereum blockchain that
                     allows people to donate a certain amount to a charity of
@@ -56,9 +56,9 @@ export default class Homepage extends Component {
                   </p>
                   <a
                     href="https://github.com/TheBangles/solidarity"
-                    class="has-text-centered"
+                    className="has-text-centered"
                   >
-                    <button class="button is-link">
+                    <button className="button is-link">
                       Code with us at Solidarity
                     </button>
                   </a>

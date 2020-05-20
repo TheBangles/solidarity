@@ -23,7 +23,7 @@ const AddProjectForm = (props) => {
         <form onSubmit={onSubmit}>
           {/* Project Name */}
           <div className="field">
-            <label className="label">Project Name</label>
+            <label className="label">Campaign Name</label>
             <div className="control">
               <input
                 className="input"
@@ -34,10 +34,15 @@ const AddProjectForm = (props) => {
                 value={name}
               />
             </div>
+            <p className="help">
+              If you are a donor, creating your first campaign will convert your
+              status to a charity. You will no longer be able to donate once you
+              are a charity.
+            </p>
           </div>
           {/* Description */}
           <div className="field">
-            <label className="label">Description</label>
+            <label className="label">About</label>
             <div className="control">
               <input
                 className="textarea"
@@ -65,7 +70,7 @@ const AddProjectForm = (props) => {
           </div>
           {/* Amount Needed */}
           <div className="field">
-            <label className="label">Amount Needed (ether)</label>
+            <label className="label">Goal (ether)</label>
             <div className="control">
               <input
                 className="input"
