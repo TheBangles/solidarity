@@ -1,6 +1,6 @@
 // For the default version
-const algoliasearch = require('algoliasearch');
-import algoliasearch from 'algoliasearch';
+// const algoliasearch = require('algoliasearch');
+import algoliasearch from 'algoliasearch/lite';
 import React, { Component } from 'react';
 import {
   InstantSearch,
@@ -13,13 +13,40 @@ import {
   Configure,
 } from 'react-instantsearch-dom';
 import PropTypes from 'prop-types';
-import './App.css';
-// const index = client.initIndex('your_index_name');
+import '../App.css';
+const searchClient = algoliasearch('5QW3O4IWII', '4962981df99de5b545e9fbe9911675bf');
 
-
-const client = algoliasearch('5QW3O4IWII', '4962981df99de5b545e9fbe9911675bf');
 
 class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      projects: []
+    };
+  }
+
+  async componentDidMount(){
+
+    // length = last id of projects, in our contract, nextId starts at 1 and we increment nextId each time we create a project
+    const length = await this.props.drizzle.contracts.Donate.methods.nextId().call();
+
+    // Get total number of projects
+    const projects = [];
+
+    for (let i = 1; i < length; i++) {
+      let project = await this.props.drizzle.contracts.Donate.methods.readSingleProject(i).call();
+      projects.push(project);
+
+    }
+
+    index.savOebjects(projects, {
+      autoGenerateObjectIDIfNotExist: true
+    }).then(({ objectIDs }) => {
+      console.log(objectIDs);
+    });
+
+  }
+
   render() {
     return (
       <div className="ais-InstantSearch">
@@ -60,5 +87,6 @@ function Hit(props) {
 Hit.propTypes = {
   hit: PropTypes.object.isRequired,
 };
+
 
 export default Search;
