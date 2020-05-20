@@ -29,8 +29,6 @@ export default class AddProject extends Component {
     });
   };
 
-  // handleSubmit = async (event) => {
-  //   event.preventDefault();
   handleSubmit = async () => {
     let toast;
     //wei to ether convertion
@@ -43,7 +41,8 @@ export default class AddProject extends Component {
           this.state.name,
           this.state.description,
           amountNeeded,
-          this.state.imageUrl
+          this.state.imageUrl ||
+            'https://article.images.consumerreports.org/f_auto/prod/content/dam/CRO%20Images%202019/Money/11November/CR-Money-Inlinehero-best-and-worst-charities-1119'
         )
         .send({ from: this.state.userAddress });
       this.setState({
