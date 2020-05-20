@@ -57,8 +57,8 @@ export default class FinishedProjects extends Component {
                 <Link to={`/single/${project[0]}`}>
                   <h3>Name: {project[2]}</h3>
                   <img src={project[7]} alt="project"/>
-                  <h3>Description: {project[3]}</h3>
-                  <h3>Amount Donated: {convert(project[5], 'wei').ether}</h3>
+                  <h3>About: {project[3]}</h3>
+                  <h3>Contributions (ether): {convert(project[5], 'wei').ether}</h3>
                 </Link>
               </div>
             ))}

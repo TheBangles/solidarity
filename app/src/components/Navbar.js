@@ -44,7 +44,7 @@ const Navbar = (props) => {
             </a>
 
             <a className="navbar-item" href="/finished">
-              Finished Campaigns
+              Successful Campaigns
             </a>
 
           </div>
