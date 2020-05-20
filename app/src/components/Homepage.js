@@ -55,13 +55,14 @@ export default class Homepage extends Component {
                     contract is fully open-source.
                   </p>
                   <a
-                    href="/https://github.com/TheBangles/solidarity"
+                    href="https://github.com/TheBangles/solidarity"
                     class="has-text-centered"
                   >
                     <button class="button is-link">
                       Code with us at Solidarity
                     </button>
                   </a>
+
                 </div>
               </div>
             </div>
