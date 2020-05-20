@@ -20,6 +20,7 @@ const SingleProjectForm = (props) => {
 
   return (
     <div className="content">
+      <br></br>
       {/* <div className="notification"> */}
       <h3>{singleProject[2]}</h3>
       <img class="image is-200x200" src={singleProject[6]} alt="project"/>
@@ -36,7 +37,7 @@ const SingleProjectForm = (props) => {
       <form onSubmit={onSubmit}>
         {/* Amount to Donate */}
         <div className="field">
-          <label className="label">I want to contribute(ether)</label>
+          <label className="label">I want to contribute (ether)</label>
           <div className="control">
             <input
               className="input"
@@ -51,7 +52,7 @@ const SingleProjectForm = (props) => {
         {/* Submit */}
         <div className="field">
           <div className="control">
-            <button className="button is-link">contribute</button>
+            <button className="button is-link">Contribute</button>
           </div>
         </div>
       </form>
