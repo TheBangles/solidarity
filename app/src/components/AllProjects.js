@@ -49,21 +49,22 @@ export default class AllProjects extends Component {
       let project = await this.props.drizzle.contracts.Donate.methods
         .readSingleProject(i)
         .call();
-      projects.push(project);
+      if (project[6] === true) projects.push(project);
     }
     return projects;
   }
 
   render() {
+    console.log(this.state.projects)
     return this.state.projects ? (
-      <div class="container">
+      <div className="container">
         {/* <div class="notification"> */}
           <div className="flex-container">
-            {this.state.projects.map((project) => (
-              <div className="individual-flex" key={project[0]}>
+            {this.state.projects.map((project) =>
+            (<div className="individual-flex" key={project[0]}>
                 <Link to={`/single/${project[0]}`}>
                   <h3>Name: {project[2]}</h3>
-                  <img src={project[6]} alt="project"/>
+                  <img src={project[7]} alt="project"/>
                   <h3>Description: {project[3]}</h3>
                   <h3>Amount Needed: {convert(project[4], 'wei').ether}</h3>
                   <h3>Amount Donated: {convert(project[5], 'wei').ether}</h3>
