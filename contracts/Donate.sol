@@ -141,6 +141,14 @@ contract Donate {
         );
     }
 
+    function isCharity() public view returns (bool) {
+        for (uint256 i = 0; i < allProjects.length; i++) {
+            if (allProjects[i].recipient == msg.sender) {
+                return true;
+            }
+        }
+        return false;
+    }
     function () external {
         revert('not sure what you are doing');
     }
