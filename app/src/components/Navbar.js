@@ -26,9 +26,12 @@ const Navbar = (props) => {
 
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-            <div className="navbar-item">
-              <img src="https://blog.ethereum.org/img/avatar-icon.png" alt="logo" />
-            </div>
+            <a className="navbar-item" href="/">
+              <img
+                src="https://blog.ethereum.org/img/avatar-icon.png"
+                alt="logo"
+              />
+            </a>
 
             {/* <div className="navbar-item">Solidarity</div> */}
 
