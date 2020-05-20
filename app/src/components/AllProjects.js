@@ -63,7 +63,7 @@ export default class AllProjects extends Component {
               <div className="individual-flex" key={project[0]}>
                 <Link to={`/single/${project[0]}`}>
                   <h3>Name: {project[2]}</h3>
-                  <img src={project[6]} />
+                  <img src={project[6]} alt="project"/>
                   <h3>Description: {project[3]}</h3>
                   <h3>Amount Needed: {convert(project[4], 'wei').ether}</h3>
                   <h3>Amount Donated: {convert(project[5], 'wei').ether}</h3>

@@ -16,6 +16,7 @@ const Navbar = (props) => {
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"
+            href="/"
           >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -26,7 +27,7 @@ const Navbar = (props) => {
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
             <div className="navbar-item">
-              <img src="https://blog.ethereum.org/img/avatar-icon.png" />
+              <img src="https://blog.ethereum.org/img/avatar-icon.png" alt="logo" />
             </div>
 
             {/* <div className="navbar-item">Solidarity</div> */}

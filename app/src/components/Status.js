@@ -18,6 +18,10 @@ export default class Status extends Component {
   }
 
   render() {
-    return <span>Status: {this.state.status ? 'Charity' : 'Donor'}</span>;
+    return (
+      <span>
+        Logged in as: {this.state.status ? "Charity" : "Donor"}
+      </span>
+    );
   }
 }
