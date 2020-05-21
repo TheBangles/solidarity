@@ -36,11 +36,11 @@ export default class Routes extends Component {
             path="/finished"
             render={() => <FinishedProjects {...this.props} />}
           />
-          <Route
+          {/* <Route
             exact
             path="/search"
             render={() => <Search {...this.props} />}
-          />
+          /> */}
           <Route path="/"
             render={() => <Homepage {...this.props}/> }
           />
