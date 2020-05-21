@@ -42,6 +42,9 @@ const Navbar = (props) => {
             <a className="navbar-item" href="/all">
               Donate
             </a>
+            {/* <a className="navbar-item" href="/search">
+              Search
+            </a> */}
 
             <a className="navbar-item" href="/finished">
               Successful Campaigns
