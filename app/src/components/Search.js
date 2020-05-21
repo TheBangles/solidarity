@@ -42,11 +42,11 @@ class Search extends Component {
   render() {
     return (
       <InstantSearch indexName="project_index" searchClient={searchClient}>
-          <ClearRefinements />
-          <Configure hitsPerPage={20} />
-          <SearchBox />
+          <Configure hitsPerPage={50} />
+          <div style={{ padding: '20px 0'}}>
+            <SearchBox />
+          </div>
           <Hits hitComponent={Hit} />
-          <Pagination />
       </InstantSearch>
     );
   }
@@ -56,13 +56,13 @@ class Search extends Component {
 function Hit(props) {
   return (
     <div>
-      {/* <img src={props.hit[7]} align="left" alt={props.hit.name} /> */}
       <Highlight attribute="name" hit={props.hit} />
       <Highlight attribute="description" hit={props.hit} />
-      <div>
+      <div style={{ padding: '10px 0'}}>
         <Link to={`/single/${props.hit[0]}`}>
-          <div> Name {props.hit[2]} </div>
-          <div> imgUrl {props.hit[7]} </div>
+          <img src={props.hit[6]} alt={props.hit.name} width='300px'/>
+          <br/>
+          <div> {props.hit[2]} </div>
         </Link>
       </div>
     </div>
