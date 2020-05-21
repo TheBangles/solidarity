@@ -25,6 +25,7 @@ class Search extends Component {
     for (let i = 1; i < length; i++) {
       let project = await this.props.drizzle.contracts.Donate.methods.readSingleProject(i).call();
       projects.push(project);
+      console.log(projects)
     }
 
     // given built-in "push data to algolia",
@@ -51,18 +52,18 @@ class Search extends Component {
 // built-in demo with added Link
 function Hit(props) {
   return (
-    <div>
+    <div className="container">
+      <div className="flex-container">
       <Highlight attribute="name" hit={props.hit} />
       <Highlight attribute="description" hit={props.hit} />
-      <div style={{ padding: '10px 0'}}>
-        {
-
-          <Link to={`/single/${props.hit[0]}`}>
-            <img src={props.hit[7]} alt={props.hit.name} width='300px'/>
+      <div className="individual-flex">
+        {<Link to={`/single/${props.hit[0]}`}>
+            <img src={props.hit[7]} alt={props.hit.name} width='300px' height="300"/>
             <br/>
             <div> {props.hit[2]} </div>
           </Link>
         }
+        </div>
       </div>
     </div>
   );
