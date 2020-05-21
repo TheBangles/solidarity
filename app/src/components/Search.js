@@ -30,7 +30,7 @@ class Search extends Component {
     }
 
     // given built-in "push data to algolia",
-    // change saveObject to replaceAllObject, for saving duplicately
+    // change saveObject to replaceAllObject, to avoid saving duplicately
     index.replaceAllObjects(projects, {
       autoGenerateObjectIDIfNotExist: true
     }).then(({ objectIDs }) => {
@@ -52,7 +52,7 @@ class Search extends Component {
   }
 }
 
-// built-in demo with added line 74-79
+// built-in demo with added Link
 function Hit(props) {
   return (
     <div>
