@@ -6,9 +6,7 @@ import {
   InstantSearch,
   Hits,
   SearchBox,
-  Pagination,
   Highlight,
-  ClearRefinements,
   Configure,
 } from 'react-instantsearch-dom';
 const searchClient = algoliasearch('5QW3O4IWII', '4962981df99de5b545e9fbe9911675bf');
@@ -31,17 +29,15 @@ class Search extends Component {
 
     // given built-in "push data to algolia",
     // change saveObject to replaceAllObject, to avoid saving duplicately
-    index.replaceAllObjects(projects, {
+    await index.replaceAllObjects(projects, {
       autoGenerateObjectIDIfNotExist: true
-    }).then(({ objectIDs }) => {
-      console.log(objectIDs);
     });
   }
 
   // built-in demo code
   render() {
     return (
-      <InstantSearch indexName="project_index" searchClient={searchClient}>
+      <InstantSearch indexName="project_index" searchClient={searchClient} refresh>
           <Configure hitsPerPage={50} />
           <div style={{ padding: '20px 0'}}>
             <SearchBox />
@@ -59,11 +55,14 @@ function Hit(props) {
       <Highlight attribute="name" hit={props.hit} />
       <Highlight attribute="description" hit={props.hit} />
       <div style={{ padding: '10px 0'}}>
-        <Link to={`/single/${props.hit[0]}`}>
-          <img src={props.hit[7]} alt={props.hit.name} width='300px'/>
-          <br/>
-          <div> {props.hit[2]} </div>
-        </Link>
+        {
+
+          <Link to={`/single/${props.hit[0]}`}>
+            <img src={props.hit[7]} alt={props.hit.name} width='300px'/>
+            <br/>
+            <div> {props.hit[2]} </div>
+          </Link>
+        }
       </div>
     </div>
   );
