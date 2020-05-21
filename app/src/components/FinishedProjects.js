@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 const convert = require('ether-converter');
 
-export default class AllProjects extends Component {
+export default class FinishedProjects extends Component {
   constructor(props, context) {
     super(props);
     this.drizzleState = context.drizzle;
@@ -19,27 +19,20 @@ export default class AllProjects extends Component {
   }
 
   async componentDidUpdate() {
-    // component and its parent component rerenders a few times - not sure why
     const { drizzle, drizzleState } = this.props;
     const { Donate } = this.props.drizzleState.contracts;
     let length;
     let projects = [];
 
-    // Donate.getAllProjectsLength only has keys (e.g. ['0x0']) after the third re-render. comment back console.log below to find out:
-    // console.log('Donate.getAllProjects.Length', Donate.getAllProjectsLength);
     if (Object.keys(Donate.getAllProjectsLength).length > 0) {
       length = Donate.getAllProjectsLength['0x0'].value;
     }
 
-    // length is defined only after third re-render
     if (length) {
       const data = await this.getAllProjects(length, projects);
-      // console.log('BEFORE STATE UPDATED', this.state.projects);
 
-      // stop updating state if this.state.projects is defined/updated with ^^^data^^^
       if (!this.state.projects) {
         this.setState({ projects: data });
-        // console.log('AFTER STATE UPDATED', this.state.projects);
       }
     }
   }
@@ -49,7 +42,7 @@ export default class AllProjects extends Component {
       let project = await this.props.drizzle.contracts.Donate.methods
         .readSingleProject(i)
         .call();
-      if (project[6] === true) projects.push(project);
+      if (project[6] !== true) projects.push(project);
     }
     return projects;
   }
@@ -58,21 +51,18 @@ export default class AllProjects extends Component {
     return this.state.projects ? (
       <div className="container">
         {/* <div class="notification"> */}
-        <div className="flex-container">
-          {this.state.projects.map((project) => (
-            <div className="individual-flex" key={project[0]}>
-              <Link to={`/single/${project[0]}`}>
-                <h3>{project[2]}</h3>
-                <img src={project[7]} height="300" width="300" alt="project" />
-                <h3>About: {project[3]}</h3>
-                <h3>Goal (ether): {convert(project[4], 'wei').ether}</h3>
-                <h3>
-                  Contributions (ether): {convert(project[5], 'wei').ether}
-                </h3>
-              </Link>
-            </div>
-          ))}
-        </div>
+          <div className="flex-container">
+            {this.state.projects.map((project) =>
+            (<div className="individual-flex" key={project[0]}>
+                <Link to={`/single/${project[0]}`}>
+                  <h3>Name: {project[2]}</h3>
+                  <img src={project[7]} height="300" width="300" alt="project"/>
+                  <h3>About: {project[3]}</h3>
+                  <h3>Contributions (ether): {convert(project[5], 'wei').ether}</h3>
+                </Link>
+              </div>
+            ))}
+          </div>
         {/* </div> */}
       </div>
     ) : (

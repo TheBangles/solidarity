@@ -8,6 +8,7 @@ import SingleProject from './components/SingleProject';
 import AllProjects from './components/AllProjects';
 import Search from './components/Search';
 
+import FinishedProjects from './components/FinishedProjects';
 
 export default class Routes extends Component {
   render() {
@@ -29,6 +30,11 @@ export default class Routes extends Component {
             exact
             path="/all"
             render={() => <AllProjects {...this.props} />}
+          />
+          <Route
+            exact
+            path="/finished"
+            render={() => <FinishedProjects {...this.props} />}
           />
           <Route
             exact

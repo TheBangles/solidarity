@@ -45,6 +45,11 @@ const Navbar = (props) => {
             <a className="navbar-item" href="/search">
               Search
             </a>
+
+            <a className="navbar-item" href="/finished">
+              Successful Campaigns
+            </a>
+
           </div>
         </div>
         <div className="navbar-end">
