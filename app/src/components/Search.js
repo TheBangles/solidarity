@@ -55,14 +55,11 @@ function Hit(props) {
       <Highlight attribute="name" hit={props.hit} />
       <Highlight attribute="description" hit={props.hit} />
       <div style={{ padding: '10px 0'}}>
-        {
-
           <Link to={`/single/${props.hit[0]}`}>
             <img src={props.hit[7]} alt={props.hit.name} width='300px'/>
             <br/>
             <div> {props.hit[2]} </div>
           </Link>
-        }
       </div>
     </div>
   );
