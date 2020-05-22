@@ -6,9 +6,11 @@ const SingleProjectForm = (props) => {
   const {
     handleChange,
     handleSubmit,
-    state: { singleProject, amount },
+    state: { singleProject, amount, isCharity },
   } = props;
   const { addToast } = useToasts();
+
+  const notOngoing = !singleProject[6];
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -17,6 +19,7 @@ const SingleProjectForm = (props) => {
       ? addToast('Donation successful!', { appearance: 'success' })
       : addToast('Donation failed!', { appearance: 'error' });
   };
+
 
   return (
     <div className="content">
@@ -63,31 +66,35 @@ const SingleProjectForm = (props) => {
                 {convert(singleProject[5], "wei").ether}{" "}
               </p>
             </div>
+
             {/* Submit */}
-              <label className="label">I want to contribute (ether)</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="number"
-                  min="0"
-                  placeholder="Amount of Ether to donate"
-                  onChange={handleChange}
-                  name="amount"
-                  value={amount}
-                />
+            {isCharity || notOngoing ? (
+              <span />
+            ) : (
+              <div>
+                <label className="label">I want to contribute (ether)</label>
+                <div className="control">
+                  <input
+                    className="input"
+                    type="number"
+                    min="0"
+                    placeholder="Amount of Ether to donate"
+                    onChange={handleChange}
+                    name="amount"
+                    value={amount}
+                  />
+                </div>
+                <br></br>
+                <div className="field">
+                  <div className="control">
+                    <button className="button is-link">Contribute</button>
+                  </div>
+                </div>
               </div>
-              <br></br>
-            <div className="field">
-              <div className="control">
-                <button className="button is-link">Contribute</button>
-              </div>
-            </div>
+            )}
           </form>
         </div>
       </div>
-
-      {/* Donate */}
-      {/* </div> */}
     </div>
   );
 };
