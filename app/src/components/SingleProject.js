@@ -10,6 +10,8 @@ export default class SingleProject extends Component {
     this.state = {
       singleProject: undefined,
       amount: 0,
+      isCharity: undefined,
+
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,7 +25,29 @@ export default class SingleProject extends Component {
     this.setState({
       singleProject,
     });
+
+    const { drizzle } = this.props;
+    let state = await drizzle.store.getState();
+    const dataKey = await drizzle.contracts.Donate.methods.isCharity.cacheCall();
+
+
+
   }
+
+  async componentDidUpdate() {
+    const { drizzle } = await this.props;
+    let state = await drizzle.store.getState();
+    if (state.contracts.Donate.isCharity['0x0']) {
+      let isCharity = state.contracts.Donate.isCharity['0x0'].value;
+      if (isCharity !== this.state.isCharity) {
+        this.setState({
+          isCharity,
+        });
+      }
+    }
+  }
+
+
 
   handleChange = (event) => {
     this.setState({
@@ -64,7 +88,6 @@ export default class SingleProject extends Component {
   };
 
   render() {
-    console.log('this.state.singleProject', this.state.singleProject);
     // let singleProject = this.state.singleProject || 'not mounted';
     if (!this.state.singleProject) {
       return (
@@ -78,6 +101,7 @@ export default class SingleProject extends Component {
       );
     }
     return (
+
       <SingleProjectForm
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
