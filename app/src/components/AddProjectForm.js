@@ -28,7 +28,7 @@ const AddProjectForm = (props) => {
               <input
                 className="input"
                 type="text"
-                placeholder="Text input"
+                placeholder="Campaign name"
                 onChange={handleChange}
                 name="name"
                 value={name}
@@ -44,11 +44,11 @@ const AddProjectForm = (props) => {
           <div className="field">
             <label className="label">About</label>
             <div className="control">
-              <input
+              <textarea
                 className="textarea"
                 id="word-wrap"
                 type="text"
-                placeholder="Enter description"
+                placeholder="Description"
                 onChange={handleChange}
                 name="description"
                 value={description}
@@ -59,10 +59,10 @@ const AddProjectForm = (props) => {
           <div className="field">
             <label className="label">Image Url</label>
             <div className="control">
-              <input
+              <textarea
                 className="input"
                 type="text"
-                placeholder="Enter Image Url "
+                placeholder="Image url "
                 onChange={handleChange}
                 name="imageUrl"
                 value={imageUrl}
@@ -76,7 +76,7 @@ const AddProjectForm = (props) => {
               <input
                 className="input"
                 type="number"
-                placeholder="Number input"
+                placeholder="Campaign goal"
                 onChange={handleChange}
                 name="amountNeeded"
                 value={amountNeeded}

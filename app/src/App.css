@@ -27,7 +27,7 @@
 
 .individual-flex {
   display: flex;
-  background-color: lightgray;
+  background-color: #A6E2DF;
   flex: 1 0 0;
   width: 50%;
   flex-basis: 33.333333%;
@@ -64,9 +64,9 @@ a {
 }
 
 #second-column {
-  margin-top: 75px;
+  margin-top: 100px;
 }
 
-#word-wrap {
+#id {
   word-wrap: break-word;
 }

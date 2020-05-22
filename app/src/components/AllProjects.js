@@ -51,7 +51,7 @@ export default class AllProjects extends Component {
         .call();
       if (project[6] === true) projects.push(project);
     }
-    return projects;
+    return projects.reverse();
   }
 
   render() {

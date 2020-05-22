@@ -23,7 +23,7 @@ const SingleProjectForm = (props) => {
       <br></br>
       {/* <div className="notification"> */}
       <div class="columns">
-        <div class="column is-half" id="first-column">
+        <div class="column is-two-thirds" id="first-column">
           <h2 className="single-title" >{singleProject[2]}</h2>
           <img  className="image is-200x200" src={singleProject[7]} alt="project" id="single-image"/>
           <progress
@@ -31,14 +31,14 @@ const SingleProjectForm = (props) => {
         value={singleProject[5]}
         max={singleProject[4]}
       />
-          <p><strong> About: </strong>{singleProject[3]}</p>
-          <p> <strong> Goal (ether): </strong> {convert(singleProject[4], 'wei').ether}</p>
-          <p> <strong>Contributions (ether): </strong>{convert(singleProject[5], 'wei').ether} </p>
+          <p id="about"><strong> About: </strong>{singleProject[3]}</p>
         </div>
-      <div class="column is-half" id="second-column">
+      <div class="column is-one-third" id="second-column">
         <form onSubmit={onSubmit}>
           {/* Amount to Donate */}
           <div className="field">
+          <p> <strong> Goal (ether): </strong> {convert(singleProject[4], 'wei').ether}</p>
+          <p> <strong>Contributions (ether): </strong>{convert(singleProject[5], 'wei').ether} </p>
             <label className="label">I want to contribute (ether)</label>
             <div className="control">
               <input
