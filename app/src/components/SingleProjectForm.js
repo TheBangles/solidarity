@@ -62,6 +62,8 @@ const SingleProjectForm = (props) => {
                 <strong>Contributions (ether): </strong>
                 {convert(singleProject[5], "wei").ether}{" "}
               </p>
+            </div>
+            {/* Submit */}
               <label className="label">I want to contribute (ether)</label>
               <div className="control">
                 <input
@@ -74,8 +76,7 @@ const SingleProjectForm = (props) => {
                   value={amount}
                 />
               </div>
-            </div>
-            {/* Submit */}
+              <br></br>
             <div className="field">
               <div className="control">
                 <button className="button is-link">Contribute</button>
