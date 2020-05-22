@@ -70,3 +70,9 @@ a {
 #id {
   word-wrap: break-word;
 }
+
+#content-container {
+  margin-top: 15px;
+  border: solid #A6E2DF;
+  border-radius: 25px;
+}

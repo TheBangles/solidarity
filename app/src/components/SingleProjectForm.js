@@ -19,7 +19,7 @@ const SingleProjectForm = (props) => {
   };
 
   return (
-    <div className="content">
+    <div className="content" id="content-container">
       <br></br>
       {/* <div className="notification"> */}
       <div class="columns">
@@ -44,6 +44,7 @@ const SingleProjectForm = (props) => {
               <input
                 className="input"
                 type="number"
+                min="0"
                 placeholder="Amount of Ether to donate"
                 onChange={handleChange}
                 name="amount"
