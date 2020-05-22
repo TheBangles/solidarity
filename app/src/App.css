@@ -1,4 +1,3 @@
-
 .text {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -17,8 +16,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-
-
 }
 
 .individual-flex {
@@ -31,5 +28,8 @@
   border: 3px solid white;
   border-radius: 15px;
   justify-content:space-around;
+}
 
+#homepage {
+  margin-top: 20px;
 }

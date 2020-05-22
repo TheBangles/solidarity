@@ -6,7 +6,7 @@ import Homepage from './components/Homepage';
 import AddProject from './components/AddProject';
 import SingleProject from './components/SingleProject';
 import AllProjects from './components/AllProjects';
-import Search from './components/Search';
+// import Search from './components/Search';
 
 import FinishedProjects from './components/FinishedProjects';
 
