@@ -55,6 +55,10 @@ a {
   text-align: center;
 }
 
+.description {
+  text-align: justify;
+}
+
 .all-title {
   color: #006D77;
   font-size: 25px;
@@ -73,12 +77,13 @@ a {
 }
 
 #first-column {
-  text-align: justify;
+  text-align: center;
   margin-top: 15px;
   border: solid #A6E2DF;
   border-radius: 25px;
   background-color: #A6E2DF;
 }
+
 
 #second-column {
   margin-top: 100px;
