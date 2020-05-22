@@ -44,8 +44,6 @@ export default class SingleProject extends Component {
         value: amountDonated,
       });
 
-      await this.props.drizzle.contracts.Donate.methods.isCharity().call();
-
       toast = true;
 
       let newAmountDonated = parseInt(this.state.singleProject[5]);

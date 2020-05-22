@@ -32,6 +32,8 @@ export default class Status extends Component {
   }
 
   render() {
-    return <span>Status: {this.state.isCharity ? 'Charity' : 'Donor'}</span>;
+    if (this.state.isCharity === undefined) return <span />;
+    else
+      return <span>Status: {this.state.isCharity ? 'Charity' : 'Donor'}</span>;
   }
 }
