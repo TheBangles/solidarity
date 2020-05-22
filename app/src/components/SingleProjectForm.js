@@ -19,13 +19,13 @@ const SingleProjectForm = (props) => {
   };
 
   return (
-    <div className="content" id="content-container">
+    <div className="content">
       <br></br>
       {/* <div className="notification"> */}
       <div class="columns">
         <div class="column is-two-thirds" id="first-column">
           <h2 className="single-title" >{singleProject[2]}</h2>
-          <img  className="image is-200x200" src={singleProject[7]} alt="project" id="single-image"/>
+          <img className="image is-200x200" src={singleProject[7]} alt="project" id="single-image"/>
           <progress
         className="progress is-link"
         value={singleProject[5]}

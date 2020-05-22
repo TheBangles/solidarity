@@ -61,6 +61,10 @@ a {
 
 #first-column {
   text-align: center;
+  margin-top: 15px;
+  border: solid #A6E2DF;
+  border-radius: 25px;
+  background-color: #A6E2DF;
 }
 
 #second-column {
@@ -75,4 +79,5 @@ a {
   margin-top: 15px;
   border: solid #A6E2DF;
   border-radius: 25px;
+  background-color: #A6E2DF;
 }
