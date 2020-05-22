@@ -25,15 +25,10 @@ const SingleProjectForm = (props) => {
     <div className="content">
       <br></br>
       {/* <div className="notification"> */}
-      <div class="columns">
-        <div class="column is-two-thirds" id="first-column">
-          <h2 className="single-title">{singleProject[2]}</h2>
-          <img
-            className="image is-200x200"
-            src={singleProject[7]}
-            alt="project"
-            id="single-image"
-          />
+      <div className="columns">
+        <div className="column is-two-thirds" id="first-column">
+          <h2 className="single-title" >{singleProject[2]}</h2>
+          <img className="image is-200x200" src={singleProject[7]} alt="project" id="single-image"/>
 
           <progress
             className="progress is-link"
@@ -42,7 +37,7 @@ const SingleProjectForm = (props) => {
             max={singleProject[4]}
           />
           <div className="help">
-            {(singleProject[5] / singleProject[4]) * 100}% Donated
+            {Math.floor(singleProject[5]/singleProject[4]*100)}% Donated
           </div>
 
           <p id="about" className="description">

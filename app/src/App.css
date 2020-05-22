@@ -103,3 +103,9 @@ a {
 #progress {
   margin-bottom: -5px
 }
+
+
+#warning {
+  color: red;
+  text-align: center;
+}
