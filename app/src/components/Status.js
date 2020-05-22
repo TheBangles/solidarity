@@ -27,14 +27,11 @@ export default class Status extends Component {
         this.setState({
           isCharity,
         });
-        console.log(this.state.isCharity);
       }
     }
   }
 
   render() {
-    return (
-      <span>Logged in as: {this.state.isCharity ? 'Charity' : 'Donor'}</span>
-    );
+    return <span>Status: {this.state.isCharity ? 'Charity' : 'Donor'}</span>;
   }
 }

@@ -43,6 +43,9 @@ export default class SingleProject extends Component {
       await this.props.drizzle.contracts.Donate.methods.donate(id).send({
         value: amountDonated,
       });
+
+      await this.props.drizzle.contracts.Donate.methods.isCharity().call();
+
       toast = true;
 
       let newAmountDonated = parseInt(this.state.singleProject[5]);
@@ -63,7 +66,7 @@ export default class SingleProject extends Component {
   };
 
   render() {
-    console.log('this.state.singleProject', this.state.singleProject)
+    console.log('this.state.singleProject', this.state.singleProject);
     // let singleProject = this.state.singleProject || 'not mounted';
     if (!this.state.singleProject) {
       return (
