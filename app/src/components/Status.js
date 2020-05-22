@@ -4,24 +4,36 @@ export default class Status extends Component {
   constructor(props) {
     super();
     this.state = {
-      status: undefined,
+      isCharity: undefined,
     };
   }
 
   async componentDidMount() {
-    const status = await this.props.drizzle.contracts.Donate.methods
-      .isCharity()
-      .call();
+    const { drizzle } = this.props;
+    let state = await drizzle.store.getState();
+    const dataKey = await drizzle.contracts.Donate.methods.isCharity.cacheCall();
+
     this.setState({
-      status,
+      isCharity: undefined,
     });
   }
 
+  async componentDidUpdate() {
+    const { drizzle } = await this.props;
+    let state = await drizzle.store.getState();
+    if (state.contracts.Donate.isCharity['0x0']) {
+      let isCharity = state.contracts.Donate.isCharity['0x0'].value;
+      if (isCharity !== this.state.isCharity) {
+        this.setState({
+          isCharity,
+        });
+      }
+    }
+  }
+
   render() {
-    return (
-      <span>
-        Logged in as: {this.state.status ? "Charity" : "Donor"}
-      </span>
-    );
+    if (this.state.isCharity === undefined) return <span />;
+    else
+      return <span>Status: {this.state.isCharity ? 'Charity' : 'Donor'}</span>;
   }
 }
