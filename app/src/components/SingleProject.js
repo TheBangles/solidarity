@@ -64,7 +64,6 @@ export default class SingleProject extends Component {
   };
 
   render() {
-    console.log('this.state.singleProject', this.state.singleProject);
     // let singleProject = this.state.singleProject || 'not mounted';
     if (!this.state.singleProject) {
       return (
