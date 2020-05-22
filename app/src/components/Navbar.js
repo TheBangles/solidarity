@@ -34,7 +34,7 @@ const Navbar = (props) => {
             </a>
 
             <a className="navbar-item" href="/all">
-              Donate
+              Ongoing Campaigns
             </a>
             {/* <a className="navbar-item" href="/search">
               Search
