@@ -34,11 +34,24 @@
   padding: 10px;
   border: 3px solid white;
   border-radius: 15px;
-  justify-content:space-around;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  /* justify-items: center; */
+}
+
+.project-info {
+  align-self: center;
 }
 
 a {
   color: #006D77;
+  text-align: center;
+}
+
+.warning {
+  border:1px solid coral;
+  border-radius: 15px;
   text-align: center;
 }
 
