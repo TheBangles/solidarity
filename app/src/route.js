@@ -28,12 +28,12 @@ export default class Routes extends Component {
           />
           <Route
             exact
-            path="/all"
+            path="/campaigns"
             render={() => <AllProjects {...this.props} />}
           />
           <Route
             exact
-            path="/finished"
+            path="/success"
             render={() => <FinishedProjects {...this.props} />}
           />
           {/* <Route

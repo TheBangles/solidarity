@@ -23,7 +23,7 @@ export default class Homepage extends Component {
                     <strong>SECURE</strong> and <strong>TRANSPARENT</strong>{" "}
                     blockchain technologies.
                   </p>
-                  <a href="/all" className="has-text-centered">
+                  <a href="/campaigns" className="has-text-centered">
                     <button className="button is-link">Donate Today</button>
                   </a>
                 </div>

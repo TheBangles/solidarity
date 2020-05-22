@@ -34,12 +34,29 @@
   padding: 10px;
   border: 3px solid white;
   border-radius: 15px;
-  justify-content:space-around;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  /* justify-items: center; */
+}
+
+.project-info {
+  align-self: center;
 }
 
 a {
   color: #006D77;
   text-align: center;
+}
+
+.warning {
+  border:1px solid coral;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.description {
+  text-align: justify;
 }
 
 .all-title {
@@ -67,6 +84,7 @@ a {
   background-color: #A6E2DF;
 }
 
+
 #second-column {
   margin-top: 100px;
 }
@@ -84,4 +102,10 @@ a {
 
 #progress {
   margin-bottom: -5px
+}
+
+
+#warning {
+  color: red;
+  text-align: center;
 }

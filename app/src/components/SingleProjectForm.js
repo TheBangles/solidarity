@@ -8,9 +8,11 @@ const SingleProjectForm = (props) => {
     handleChange,
     handleSubmit,
     handleDonate,
-    state: { singleProject, amount, donate },
+    state: { singleProject, amount, donate, isCharity },
   } = props;
   const { addToast } = useToasts();
+
+  const notOngoing = !singleProject[6];
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -44,16 +46,16 @@ const SingleProjectForm = (props) => {
               max={singleProject[4]}
             />
             <div className="help">
-              {(singleProject[5] / singleProject[4]) * 100}% Donated
+              {Math.floor((singleProject[5] / singleProject[4]) * 100)}% Donated
             </div>
 
-            <p id="about">
+            <p id="about" className="description">
               <strong> About: </strong>
               {singleProject[3]}
             </p>
           </div>
 
-          <div className="column is-one-third" id="second-column">
+          <div class="column is-one-third" id="second-column">
             <form onSubmit={onSubmit}>
               {/* Amount to Donate */}
               <div className="field">
@@ -67,31 +69,36 @@ const SingleProjectForm = (props) => {
                   <strong>Contributions (ether): </strong>
                   {convert(singleProject[5], 'wei').ether}{' '}
                 </p>
-                <label className="label">I want to contribute (ether)</label>
-                <div className="control">
-                  <input
-                    className="input"
-                    type="number"
-                    min="0"
-                    placeholder="Amount of Ether to donate"
-                    onChange={handleChange}
-                    name="amount"
-                    value={amount}
-                  />
-                </div>
               </div>
+
               {/* Submit */}
-              <div className="field">
-                <div className="control">
-                  <button className="button is-link">Contribute</button>
+              {isCharity || notOngoing ? (
+                <span />
+              ) : (
+                <div>
+                  <label className="label">I want to contribute (ether)</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="number"
+                      min="0"
+                      placeholder="Amount of Ether to donate"
+                      onChange={handleChange}
+                      name="amount"
+                      value={amount}
+                    />
+                  </div>
+                  <br></br>
+                  <div className="field">
+                    <div className="control">
+                      <button className="button is-link">Contribute</button>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </form>
           </div>
         </div>
-
-        {/* Donate */}
-        {/* </div> */}
       </div>
     </div>
   );

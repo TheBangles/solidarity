@@ -11,6 +11,7 @@ export default class SingleProject extends Component {
       singleProject: undefined,
       amount: 0,
       donate: undefined,
+      isCharity: undefined,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,6 +26,23 @@ export default class SingleProject extends Component {
     this.setState({
       singleProject,
     });
+
+    const { drizzle } = this.props;
+    let state = await drizzle.store.getState();
+    const dataKey = await drizzle.contracts.Donate.methods.isCharity.cacheCall();
+  }
+
+  async componentDidUpdate() {
+    const { drizzle } = await this.props;
+    let state = await drizzle.store.getState();
+    if (state.contracts.Donate.isCharity['0x0']) {
+      let isCharity = state.contracts.Donate.isCharity['0x0'].value;
+      if (isCharity !== this.state.isCharity) {
+        this.setState({
+          isCharity,
+        });
+      }
+    }
   }
 
   handleDonate = () => {

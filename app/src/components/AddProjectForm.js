@@ -34,7 +34,7 @@ const AddProjectForm = (props) => {
                 value={name}
               />
             </div>
-            <p className="help">
+            <p className="help" id="warning">
               If you are a donor, creating your first campaign will convert your
               status to a charity. You will no longer be able to donate once you
               are a charity.

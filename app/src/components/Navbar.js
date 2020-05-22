@@ -33,14 +33,14 @@ const Navbar = (props) => {
               />
             </a>
 
-            <a className="navbar-item" href="/all">
+            <a className="navbar-item" href="/campaigns">
               Ongoing Campaigns
             </a>
             {/* <a className="navbar-item" href="/search">
               Search
             </a> */}
 
-            <a className="navbar-item" href="/finished">
+            <a className="navbar-item" href="/success">
               Successful Campaigns
             </a>
 
