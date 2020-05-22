@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import SingleProjectForm from './SingleProjectForm';
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import Confetti from 'react-confetti';
 const convert = require('ether-converter');
 
 export default class SingleProject extends Component {
@@ -11,9 +10,11 @@ export default class SingleProject extends Component {
     this.state = {
       singleProject: undefined,
       amount: 0,
+      donate: undefined,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDonate = this.handleDonate.bind(this);
   }
 
   async componentDidMount() {
@@ -25,6 +26,12 @@ export default class SingleProject extends Component {
       singleProject,
     });
   }
+
+  handleDonate = () => {
+    this.setState({
+      donate: true,
+    });
+  };
 
   handleChange = (event) => {
     this.setState({
@@ -78,10 +85,10 @@ export default class SingleProject extends Component {
     }
     return (
       <div>
-        <Confetti />
         <SingleProjectForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          handleDonate={this.handleDonate}
           state={this.state}
         />
       </div>
