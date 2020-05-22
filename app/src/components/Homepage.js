@@ -10,7 +10,7 @@ export default class Homepage extends Component {
     return (
       <div>
         <section id="home" className="hero is-medium">
-          <div className="hero-body">
+          <div className="hero-head" id="homepage">
             <div className="container">
               <div className="columns is-vcentered">
                 <div className="column is-6">
