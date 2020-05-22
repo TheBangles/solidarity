@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SingleProjectForm from './SingleProjectForm';
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Confetti from 'react-confetti';
 const convert = require('ether-converter');
 
 export default class SingleProject extends Component {
@@ -64,8 +65,6 @@ export default class SingleProject extends Component {
   };
 
   render() {
-    console.log('this.state.singleProject', this.state.singleProject);
-    // let singleProject = this.state.singleProject || 'not mounted';
     if (!this.state.singleProject) {
       return (
         <Loader
@@ -78,11 +77,14 @@ export default class SingleProject extends Component {
       );
     }
     return (
-      <SingleProjectForm
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-        state={this.state}
-      />
+      <div>
+        <Confetti />
+        <SingleProjectForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          state={this.state}
+        />
+      </div>
     );
   }
 }
