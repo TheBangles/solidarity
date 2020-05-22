@@ -81,3 +81,7 @@ a {
   border-radius: 25px;
   background-color: #A6E2DF;
 }
+
+#progress {
+  margin-bottom: -5px
+}

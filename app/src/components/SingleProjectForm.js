@@ -26,13 +26,20 @@ const SingleProjectForm = (props) => {
         <div class="column is-two-thirds" id="first-column">
           <h2 className="single-title" >{singleProject[2]}</h2>
           <img className="image is-200x200" src={singleProject[7]} alt="project" id="single-image"/>
+
           <progress
-        className="progress is-link"
-        value={singleProject[5]}
-        max={singleProject[4]}
-      />
+            className="progress is-link"
+            id="progress"
+            value={singleProject[5]}
+            max={singleProject[4]}
+          />
+          <div className="help">
+            {singleProject[5]/singleProject[4]*100}% Donated
+          </div>
+
           <p id="about"><strong> About: </strong>{singleProject[3]}</p>
         </div>
+
       <div class="column is-one-third" id="second-column">
         <form onSubmit={onSubmit}>
           {/* Amount to Donate */}
