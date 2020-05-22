@@ -40,7 +40,7 @@ const Navbar = (props) => {
               Search
             </a> */}
 
-            <a className="navbar-item" href="/successes">
+            <a className="navbar-item" href="/success">
               Successful Campaigns
             </a>
 
