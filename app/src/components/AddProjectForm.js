@@ -46,6 +46,7 @@ const AddProjectForm = (props) => {
             <div className="control">
               <input
                 className="textarea"
+                id="word-wrap"
                 type="text"
                 placeholder="Enter description"
                 onChange={handleChange}

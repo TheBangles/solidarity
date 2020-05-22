@@ -11,6 +11,13 @@
   width: 50%;
 }
 
+/* HOMEPAGE */
+#homepage {
+  margin-top: 40px;
+}
+
+
+/* ALLPROJECTS */
 .flex-container {
   display: flex;
   flex-direction: row;
@@ -22,7 +29,7 @@
   display: flex;
   background-color: lightgray;
   flex: 1 0 0;
-  /* width: 50%; */
+  width: 50%;
   flex-basis: 33.333333%;
   padding: 10px;
   border: 3px solid white;
@@ -30,6 +37,36 @@
   justify-content:space-around;
 }
 
-#homepage {
-  margin-top: 20px;
+a {
+  color: #006D77;
+  text-align: center;
+}
+
+.all-title {
+  color: #006D77;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+#flex-container {
+  margin-top: 15px;
+}
+
+/* SINGLE PROJECTS */
+
+#single-image {
+  margin-bottom: 20px;
+}
+
+#first-column {
+  text-align: center;
+}
+
+#second-column {
+  margin-top: 75px;
+}
+
+#word-wrap {
+  word-wrap: break-word;
 }
