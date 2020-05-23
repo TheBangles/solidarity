@@ -73,7 +73,7 @@ const SingleProjectForm = (props) => {
 
               {/* Submit */}
               {isCharity || notOngoing ? (
-                <span />
+                <span>This charity is no longer taking donations.</span>
               ) : (
                 <div>
                   <label className="label">I want to contribute (ether)</label>
