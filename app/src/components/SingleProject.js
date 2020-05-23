@@ -10,11 +10,12 @@ export default class SingleProject extends Component {
     this.state = {
       singleProject: undefined,
       amount: 0,
+      donate: undefined,
       isCharity: undefined,
-
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDonate = this.handleDonate.bind(this);
   }
 
   async componentDidMount() {
@@ -29,9 +30,6 @@ export default class SingleProject extends Component {
     const { drizzle } = this.props;
     let state = await drizzle.store.getState();
     const dataKey = await drizzle.contracts.Donate.methods.isCharity.cacheCall();
-
-
-
   }
 
   async componentDidUpdate() {
@@ -47,12 +45,17 @@ export default class SingleProject extends Component {
     }
   }
 
-
+  handleDonate = () => {
+    this.setState({
+      donate: true,
+    });
+  };
 
   handleChange = (event) => {
     this.setState({
       // update amount donated
       amount: event.target.value,
+      donate: undefined,
     });
   };
 
@@ -88,7 +91,6 @@ export default class SingleProject extends Component {
   };
 
   render() {
-    // let singleProject = this.state.singleProject || 'not mounted';
     if (!this.state.singleProject) {
       return (
         <Loader
@@ -101,12 +103,14 @@ export default class SingleProject extends Component {
       );
     }
     return (
-
-      <SingleProjectForm
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-        state={this.state}
-      />
+      <div>
+        <SingleProjectForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          handleDonate={this.handleDonate}
+          state={this.state}
+        />
+      </div>
     );
   }
 }
