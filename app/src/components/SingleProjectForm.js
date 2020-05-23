@@ -25,7 +25,7 @@ const SingleProjectForm = (props) => {
 
   return (
     <div>
-      {donate && <Confetti />}
+      {donate && <Confetti recycle={false} initialVelocityY={50} />}
       <div className="content">
         <br></br>
         {/* <div className="notification"> */}

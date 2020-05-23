@@ -55,6 +55,7 @@ export default class SingleProject extends Component {
     this.setState({
       // update amount donated
       amount: event.target.value,
+      donate: undefined,
     });
   };
 
