@@ -28,7 +28,7 @@ cd app
 npm run start
 ```
 
-# Tech Stack
+## Tech Stack
 - Ethereum - Decentralized, open source, and distributed computing platform that allows creation of smart contracts and dapps 
 - Solidity - Object-oriented language for implementing smart contracts
 - Web3.js - Allows you to interact with local/remote ethereum node using HTTP/IPC connection 
