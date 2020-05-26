@@ -10,6 +10,9 @@ export default class AllProjects extends Component {
     this.drizzleState = context.drizzle;
     this.state = {
       projects: undefined,
+      totalPage: [],
+      size: 10,
+      currentPage: 0,
     };
     this.getAllProjects = this.getAllProjects.bind(this);
   }
@@ -40,8 +43,10 @@ export default class AllProjects extends Component {
       if (!this.state.projects) {
         this.setState({ projects: data });
         // console.log('AFTER STATE UPDATED', this.state.projects);
+        this.pagination();
       }
     }
+
   }
 
   async getAllProjects(length, projects) {
@@ -54,12 +59,42 @@ export default class AllProjects extends Component {
     return projects.reverse();
   }
 
+  pagination() {
+    if (this.state.projects) {
+      const totalPage = [];
+
+      for (let i = 0; i < this.state.projects.length; i++) {
+        const page = Math.floor(i / this.state.size);
+
+        if (!totalPage[page]) {
+          totalPage[page] = [];
+        }
+
+        totalPage[page].push(this.state.projects[i]);
+      }
+
+      this.setState({
+        totalPage: totalPage,
+      });
+    }
+  }
+
+  changePage(page) {
+    if (page >= 0 && page < this.state.totalPage.length) {
+      this.setState({
+        currentPage: page
+      });
+
+      this.pagination();
+    }
+  }
+
   render() {
-    return this.state.projects ? (
+    return this.state.totalPage && this.state.totalPage[this.state.currentPage] ? (
       <div className="container">
         {/* <div class="notification"> */}
         <div className="flex-container" id="flex-container">
-          {this.state.projects.map((project) => (
+          {this.state.totalPage[this.state.currentPage].map((project) => (
             <div className="individual-flex" key={project[0]}>
               <Link to={`/single/${project[0]}`}>
                 <h3 className="all-title">{project[2]}</h3>
@@ -73,6 +108,21 @@ export default class AllProjects extends Component {
           ))}
         </div>
         {/* </div> */}
+        <div>
+          {
+            this.state.totalPage &&
+            <div style={{textAlign: "center", margin: "20px"}}>
+              <div>Page {this.state.currentPage + 1}</div>
+              <button onClick={this.changePage.bind(this, this.state.currentPage - 1)} style={{fontSize: "15px"}}>&lt;</button>
+              {
+                this.state.totalPage.map((page, index) => (
+                  <button onClick={this.changePage.bind(this, index)} style={{fontSize: "15px"}}> {index + 1}</button>
+                ))
+              }
+              <button onClick={this.changePage.bind(this, this.state.currentPage + 1)} style={{fontSize: "15px"}}>&gt;</button>
+            </div>
+          }
+        </div>
       </div>
     ) : (
       <div>
