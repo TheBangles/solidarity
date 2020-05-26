@@ -29,6 +29,8 @@ npm run start
 ```
 
 ## Tech Stack
+Within the Ethereum blockchain, we use Solidity to write a smart contract, which Truffle then migrates to our personal blockchain in Ganache. Metamask is the gateway that allows us to interact with our dapp and update Ganache. Within our app, React is rendering our data, while Drizzle updates our data if there are new blocks added.
+
 - Ethereum - Decentralized, open source, and distributed computing platform that allows creation of smart contracts and dapps 
 - Solidity - Object-oriented language for implementing smart contracts
 - Web3.js - Allows you to interact with local/remote ethereum node using HTTP/IPC connection 
