@@ -4,6 +4,8 @@ Solidarity is a charity donation platform that uses the Ethereum blockchain for 
 
 Charities can create a campaign that patrons can donate to, and they receive the funds once their goal is met. Smart contract rules prevent charities from misappropriating funds.
 
+Check out our demo [here](https://solidarity-demo.herokuapp.com/).
+
 ## Installation
 
 1. Install [Ganache](https://www.trufflesuite.com/docs/ganache/quickstart) to create a personal development blockchain and test accounts.
